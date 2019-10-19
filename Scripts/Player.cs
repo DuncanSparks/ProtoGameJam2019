@@ -9,6 +9,9 @@ public class Player : KinematicBody
 	[Export]
 	private NodePath backgroundAnimPlayerPath;
 
+	public enum PlayerState { Move, NoInput, NoPhysics };
+	private PlayerState state = PlayerState.Move;
+
 	private Vector3 velocity = new Vector3(0, 0, 0);
 
 	private bool canJump = false;
@@ -35,19 +38,19 @@ public class Player : KinematicBody
 	{
 		// Move the camera smoothly toward the player's position
 		Vector3 pos = camera.Translation;
-		camera.Translation = new Vector3(Mathf.Lerp(pos.x, Translation.x, 0.03f), pos.y, Mathf.Lerp(pos.z, Translation.z + 2.2f, 0.03f));
+		camera.Translation = new Vector3(Controller.LerpDelta(pos.x, Translation.x, 0.03f, delta), Controller.LerpDelta(pos.y, Translation.y + 0.25f, 0.02f, delta), Controller.LerpDelta(pos.z, Translation.z + 2.2f, 0.03f, delta));
 	
 		if (Input.IsActionJustPressed("debug_1"))
 		{
 			Vector3 t = Translation;
-			Translation = new Vector3(t.x, t.y, 11.5f);
+			Translation = new Vector3(t.x, t.y + 1.5f, 11.5f);
 			backgroundAnimPlayer.Play("Dark");
 		}
 
 		if (Input.IsActionJustPressed("debug_2"))
 		{
 			Vector3 t = Translation;
-			Translation = new Vector3(t.x, t.y, 0.5f);
+			Translation = new Vector3(t.x, t.y + 1.5f, 0.5f);
 			backgroundAnimPlayer.Play("Light");
 		}
 	}
@@ -55,25 +58,28 @@ public class Player : KinematicBody
 
 	public override void _PhysicsProcess(float delta)
 	{
-		// Check for left/right input
-		int x1 = Input.IsActionPressed("move_right") ? 1 : 0;
-		int x2 = Input.IsActionPressed("move_left") ? 1 : 0;
-
-		velocity.x = x1 - x2;
-
-		// Check for jump input
-		if (Input.IsActionJustPressed("move_jump") && canJump)
+		if (state != PlayerState.NoPhysics)
 		{
-			velocity.y = JumpForce;
-			canJump = false;
+			// Check for left/right input
+			int x1 = Input.IsActionPressed("move_right") ? 1 : 0;
+			int x2 = Input.IsActionPressed("move_left") ? 1 : 0;
+
+			velocity.x = x1 - x2;
+
+			// Check for jump input
+			if (Input.IsActionJustPressed("move_jump") && canJump)
+			{
+				velocity.y = JumpForce;
+				canJump = false;
+			}
+
+			// If we aren't on the floor, accelerate downward (gravity)
+			if (!onFloor)
+				velocity.y -= Gravity * delta;
+
+			// Apply velocity to player
+			MoveAndSlide(velocity * Speed, new Vector3(0, 1, 0));
 		}
-
-		// If we aren't on the floor, accelerate downward (gravity)
-		if (!onFloor)
-			velocity.y -= Gravity * delta;
-
-		// Apply velocity to player
-		MoveAndSlide(velocity * Speed, new Vector3(0, 1, 0));
 	}
 
 

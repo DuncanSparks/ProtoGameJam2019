@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Controller="*res://Instances/Global/Controller.tscn"
+Controller="*res://Prefabs/Global/Controller.tscn"
 
 [importer_defaults]
 

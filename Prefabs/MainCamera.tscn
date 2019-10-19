@@ -5,4 +5,4 @@ transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, 0
 current = true
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.994244, 0.107139, 0, -0.107139, 0.994244, 0, -0.545103, 0.948488 )
+transform = Transform( 1, 0, 0, 0, 0.994244, 0.107139, 0, -0.107139, 0.994244, 0, 0.499994, 0.157378 )
