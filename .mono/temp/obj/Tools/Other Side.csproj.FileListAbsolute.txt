@@ -1,0 +1,6 @@
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\bin\Tools\Other Side.dll
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\bin\Tools\Other Side.pdb
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\obj\Tools\Other Side.csprojAssemblyReference.cache
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\obj\Tools\Other Side.csproj.CoreCompileInputs.cache
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\obj\Tools\Other Side.dll
+C:\Users\Duncan Sparks\Documents\Godot\Projects\OtherSide\.mono\temp\obj\Tools\Other Side.pdb
