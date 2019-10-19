@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Lippo DR.png" type="Texture" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="BoxShape" id=3]
-
 [sub_resource type="BoxShape" id=2]
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 30, 2 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 15, 1 )
+
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.1805, 0.316355, 0.0173598 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.1805, 0.338988, 0.0173598 )
 
 [node name="Scene" type="Spatial"]
 
@@ -23,7 +32,24 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2" type="StaticBody" parent="." groups=[
+"Floor",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 5 )
 
 [node name="Player" type="KinematicBody" parent="." groups=[
 "Player",
@@ -39,8 +65,14 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="Player"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="Player/Area"]
+shape = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.00003, 1, 2.24571 )
 current = true
+[connection signal="body_entered" from="Player/Area" to="Player" method="_on_Area_body_entered"]
