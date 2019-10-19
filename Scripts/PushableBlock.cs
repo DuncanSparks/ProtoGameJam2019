@@ -26,7 +26,7 @@ public class PushableBlock : KinematicBody
 	{
 		if (Input.IsActionJustPressed("action") && inArea)
 		{
-			velocity.x = areaSide ? -1f : 1f;
+			velocity.x = areaSide ? -0.5f : 0.5f;
 			moving = true;
 			timerPush.Start();
 		}
