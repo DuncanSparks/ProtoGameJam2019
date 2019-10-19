@@ -1,12 +1,12 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/MainCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/TEMP.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/TEMP 2.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/TransferBlock.cs" type="Script" id=5]
-[ext_resource path="res://Scripts/Switch.cs" type="Script" id=6]
-[ext_resource path="res://Scripts/PushableBlock.cs" type="Script" id=7]
+[ext_resource path="res://Prefabs/TransferBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/PushableBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Tileset.tres" type="MeshLibrary" id=7]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -82,112 +82,10 @@ tracks/1/keys = {
 "values": [ Color( 0.584314, 0.0196078, 0.588235, 1 ), Color( 0.301961, 0.647059, 0.952941, 1 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=12]
-albedo_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="CubeMesh" id=10]
-material = SubResource( 12 )
-size = Vector3( 1, 1, 1 )
-
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 0.471821, 0.482289, 0.614361 )
-
-[sub_resource type="SpatialMaterial" id=14]
-albedo_color = Color( 1, 0.654902, 0, 1 )
-
-[sub_resource type="CubeMesh" id=13]
-material = SubResource( 14 )
-size = Vector3( 0.1, 0.5, 0.1 )
-
-[sub_resource type="BoxShape" id=15]
-extents = Vector3( 0.5, 0.5, 0.5 )
-
-[sub_resource type="Animation" id=17]
-resource_name = "Pull"
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -40 ), Vector3( 0, 0, 40 ) ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "Push"
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 40 ), Vector3( 0, 0, -40 ) ]
-}
-
-[sub_resource type="Animation" id=18]
-resource_name = "Pull"
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -40 ), Vector3( 0, 0, 40 ) ]
-}
-
-[sub_resource type="Animation" id=19]
-resource_name = "Push"
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 40 ), Vector3( 0, 0, -40 ) ]
-}
-
-[sub_resource type="CubeMesh" id=20]
-size = Vector3( 0.5, 0.5, 0.5 )
-
-[sub_resource type="BoxShape" id=21]
-extents = Vector3( 0.28, 0.28, 0.28 )
-
-[sub_resource type="BoxShape" id=22]
-extents = Vector3( 0.05, 0.3, 0.3 )
-
 [node name="Scene" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
-
-[node name="StaticBody" type="StaticBody" parent="." groups=[
-"Floor",
-]]
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 3 )
 
 [node name="StaticBody4" type="StaticBody" parent="." groups=[
 "Floor",
@@ -202,23 +100,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
 transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
-
-[node name="StaticBody2" type="StaticBody" parent="." groups=[
-"Floor",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
-transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 4 )
-material/0 = null
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 5 )
 
 [node name="StaticBody3" type="StaticBody" parent="." groups=[
 "Floor",
@@ -238,7 +119,7 @@ transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85321, 0.778924, 0.663395 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85321, 1.12217, 0.663395 )
 cameraPath = NodePath("../MainCamera")
 backgroundAnimPlayerPath = NodePath("../AnimationPlayer")
 
@@ -254,99 +135,20 @@ material/0 = null
 anims/Dark = SubResource( 8 )
 anims/Light = SubResource( 9 )
 
-[node name="TransferBlock" type="StaticBody" parent="." groups=[
-"TB",
+[node name="TransferBlock" parent="." instance=ExtResource( 5 )]
+
+[node name="PushableBlock" parent="." instance=ExtResource( 6 )]
+
+[node name="GridMap" type="GridMap" parent="." groups=[
+"Floor",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.640826 )
-script = ExtResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="TransferBlock"]
-mesh = SubResource( 10 )
-material/0 = null
-__meta__ = {
-"_edit_lock_": true
+mesh_library = ExtResource( 7 )
+cell_size = Vector3( 0.5, 0.5, 0.5 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 536870912, 2, 0, 536870912, 3, 0, 536870912, 65529, 0, 536870912, 65530, 0, 0, 65531, 0, 536870912, 65532, 0, 536870912, 65535, 0, 0, 65536, 0, 536870912, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 536870912, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 536870912, 65546, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 0, 1, 536870912, 1, 1, 536870912, 2, 1, 536870912, 3, 1, 536870912, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 536870912, 8, 1, 0, 9, 1, 536870912, 10, 1, 536870912, 65529, 1, 536870912, 65530, 1, 0, 65531, 1, 0, 65532, 1, 536870912, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 536870912, 65540, 1, 0, 65541, 1, 536870912, 65542, 1, 536870912, 65543, 1, 536870912, 65544, 1, 536870912, 65545, 1, 0, 65546, 1, 0, 131069, 1, 536870912, 131070, 1, 0, 131071, 1, 536870912, 65529, 65534, 536870912, 65530, 65534, 536870912, 65531, 65534, 536870912, 65532, 65534, 536870912, 65536, 65534, 0, 65537, 65534, 536870912, 65538, 65534, 0, 65539, 65534, 0, 65540, 65534, 536870912, 65541, 65534, 0, 65542, 65534, 0, 65543, 65534, 536870912, 65544, 65534, 0, 65545, 65534, 536870912, 65546, 65534, 0, 131069, 65534, 536870912, 131070, 65534, 0, 131071, 65534, 0, 65529, 65535, 536870912, 65530, 65535, 0, 65531, 65535, 536870912, 65532, 65535, 536870912, 65536, 65535, 536870912, 65537, 65535, 536870912, 65538, 65535, 536870912, 65539, 65535, 536870912, 65540, 65535, 536870912, 65541, 65535, 536870912, 65542, 65535, 0, 65543, 65535, 0, 65544, 65535, 0, 65545, 65535, 0, 65546, 65535, 536870912, 131069, 65535, 0, 131070, 65535, 0, 131071, 65535, 0 )
 }
-
-[node name="CollisionShape" type="CollisionShape" parent="TransferBlock"]
-shape = SubResource( 11 )
-
-[node name="Switch" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21897, 0.573504, 0.720509 )
-script = ExtResource( 6 )
-partnerSwitch = NodePath("../Switch2")
-
-[node name="MeshInstance" type="MeshInstance" parent="Switch"]
-transform = Transform( 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 13 )
-material/0 = null
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
-
-[node name="AreaInteract" type="Area" parent="Switch"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Switch/AreaInteract"]
-shape = SubResource( 15 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Switch"]
-anims/Pull = SubResource( 17 )
-anims/Push = SubResource( 16 )
-
-[node name="Switch2" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21897, 0.573504, 11.3083 )
-script = ExtResource( 6 )
-partnerSwitch = NodePath("../Switch")
-
-[node name="MeshInstance" type="MeshInstance" parent="Switch2"]
-transform = Transform( 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 13 )
-material/0 = null
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="AreaInteract" type="Area" parent="Switch2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Switch2/AreaInteract"]
-shape = SubResource( 15 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Switch2"]
-anims/Pull = SubResource( 18 )
-anims/Push = SubResource( 19 )
-
-[node name="PushableBlock" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11252, 1.1639, 0.544765 )
-script = ExtResource( 7 )
-
-[node name="MeshInstance" type="MeshInstance" parent="PushableBlock"]
-mesh = SubResource( 20 )
-material/0 = null
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="PushableBlock"]
-shape = SubResource( 21 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="AreaPushLeft" type="Area" parent="PushableBlock"]
-
-[node name="CollisionShape" type="CollisionShape" parent="PushableBlock/AreaPushLeft"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262166, 0, 0 )
-shape = SubResource( 22 )
-
-[node name="AreaPushRight" type="Area" parent="PushableBlock"]
-
-[node name="CollisionShape" type="CollisionShape" parent="PushableBlock/AreaPushRight"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221229, 0, 0 )
-shape = SubResource( 22 )
-[connection signal="body_entered" from="Switch/AreaInteract" to="Switch" method="_on_AreaInteract_body_entered"]
-[connection signal="body_exited" from="Switch/AreaInteract" to="Switch" method="_on_AreaInteract_body_exited"]
-[connection signal="body_entered" from="Switch2/AreaInteract" to="Switch2" method="_on_AreaInteract_body_entered"]
-[connection signal="body_exited" from="Switch2/AreaInteract" to="Switch2" method="_on_AreaInteract_body_exited"]
-[connection signal="body_entered" from="PushableBlock/AreaPushLeft" to="PushableBlock" method="_on_AreaPushLeft_body_entered"]
-[connection signal="body_exited" from="PushableBlock/AreaPushLeft" to="PushableBlock" method="_on_AreaPushLeft_body_exited"]
-[connection signal="body_entered" from="PushableBlock/AreaPushRight" to="PushableBlock" method="_on_AreaPushRight_body_entered"]
-[connection signal="body_exited" from="PushableBlock/AreaPushRight" to="PushableBlock" method="_on_AreaPushRight_body_exited"]

@@ -8,14 +8,28 @@ public class PushableBlock : KinematicBody
 
 	private const float Gravity = 9.8f;
 
-	//private bool inArea = false;
-	//private bool areaSide = false;
+	private bool moving = false;
+
+	private bool inArea = false;
+	private bool areaSide = false;
+
+	private Timer timerPush;
 
 	// ================================================================
 	
 	public override void _Ready()
 	{
-		
+		timerPush = GetNode<Timer>("TimerPush");
+	}
+
+	public override void _Process(float delta)
+	{
+		if (Input.IsActionJustPressed("action") && inArea)
+		{
+			velocity.x = areaSide ? -1f : 1f;
+			moving = true;
+			timerPush.Start();
+		}
 	}
 
 
@@ -33,19 +47,19 @@ public class PushableBlock : KinematicBody
 	{
 		if (body.IsInGroup("Player"))
 		{
-			//inArea = true;
-			//areaSide = false;
-			velocity.x = 3f;
+			inArea = true;
+			areaSide = false;
+			//velocity.x = 1f;
+			//moving = true;
+			//timerPush.Start();
 		}
 	}
 
 
 	private void _on_AreaPushLeft_body_exited(Node body)
 	{
-		//if (body.IsInGroup("Player"))
-	//	{
-		//	inArea = false;
-		//}
+		if (body.IsInGroup("Player"))
+			inArea = false;
 	}
 
 
@@ -53,17 +67,22 @@ public class PushableBlock : KinematicBody
 	{
 		if (body.IsInGroup("Player"))
 		{
-		//	inArea = true;
-		//	areaSide = true;
-		}//
+			inArea = true;
+			areaSide = true;
+		}
 	}
 
 
 	private void _on_AreaPushRight_body_exited(Node body)
 	{
-		//if (body.IsInGroup("Player"))
-		//{
-		//	inArea = false;
-		//}
+		if (body.IsInGroup("Player"))
+			inArea = false;
+	}
+
+
+	private void _on_TimerPush_timeout()
+	{
+		velocity.x = 0;
+		moving = false;
 	}
 }
