@@ -6,9 +6,13 @@ public class Player : KinematicBody
 	[Export]
 	private NodePath cameraPath;
 
+	[Export]
+	private NodePath backgroundAnimPlayerPath;
+
 	private Vector3 velocity = new Vector3(0, 0, 0);
 
 	private bool canJump = false;
+	private bool onFloor = false;
 
 	private const float Speed = 2f;
 	private const float Gravity = 9.8f;
@@ -16,12 +20,14 @@ public class Player : KinematicBody
 
 	private Sprite3D sprite;
 	private Camera camera;
+	private AnimationPlayer backgroundAnimPlayer;
 
 	// ================================================================
 	
 	public override void _Ready()
 	{
 		camera = GetNode<Camera>(cameraPath);
+		backgroundAnimPlayer = GetNode<AnimationPlayer>(backgroundAnimPlayerPath);
 	}
 
 
@@ -30,6 +36,20 @@ public class Player : KinematicBody
 		// Move the camera smoothly toward the player's position
 		Vector3 pos = camera.Translation;
 		camera.Translation = new Vector3(Mathf.Lerp(pos.x, Translation.x, 0.03f), pos.y, Mathf.Lerp(pos.z, Translation.z + 2.5f, 0.03f));
+	
+		if (Input.IsActionJustPressed("debug_1"))
+		{
+			Vector3 t = Translation;
+			Translation = new Vector3(t.x, t.y, 11.5f);
+			backgroundAnimPlayer.Play("Dark");
+		}
+
+		if (Input.IsActionJustPressed("debug_2"))
+		{
+			Vector3 t = Translation;
+			Translation = new Vector3(t.x, t.y, 0.5f);
+			backgroundAnimPlayer.Play("Light");
+		}
 	}
 
 
@@ -47,10 +67,9 @@ public class Player : KinematicBody
 			velocity.y = JumpForce;
 			canJump = false;
 		}
-			
 
 		// If we aren't on the floor, accelerate downward (gravity)
-		if (!IsOnFloor())
+		if (!onFloor)
 			velocity.y -= Gravity * delta;
 
 		// Apply velocity to player
@@ -64,6 +83,13 @@ public class Player : KinematicBody
 		{
 			velocity.y = 0;
 			canJump = true;
+			onFloor = true;
 		}	
+	}
+
+	private void _on_Area_body_exited(Node body)
+	{
+		if (body.IsInGroup("Floor"))
+			onFloor = false;
 	}
 }

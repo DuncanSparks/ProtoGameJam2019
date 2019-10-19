@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Lippo DR.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/TEMP.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/TEMP 2.png" type="Texture" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -19,6 +21,44 @@ extents = Vector3( 0.1805, 0.316355, 0.0173598 )
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.1805, 0.338988, 0.0173598 )
 
+[sub_resource type="SpatialMaterial" id=8]
+flags_unshaded = true
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 8 )
+size = Vector2( 30, 20 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Dark"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:mesh:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Light"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:mesh:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+}
+
 [node name="Scene" type="Spatial"]
 
 [node name="StaticBody" type="StaticBody" parent="." groups=[
@@ -31,6 +71,20 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="StaticBody4" type="StaticBody" parent="." groups=[
+"Floor",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.4801 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody4"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
 transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
@@ -51,14 +105,34 @@ __meta__ = {
 transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
+[node name="StaticBody3" type="StaticBody" parent="." groups=[
+"Floor",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 11.4801 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
 [node name="Player" type="KinematicBody" parent="." groups=[
 "Player",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.633012, 0.500314 )
 script = ExtResource( 1 )
 cameraPath = NodePath("../Camera")
+backgroundAnimPlayerPath = NodePath("../Background/AnimationPlayer")
 
 [node name="Sprite" type="Sprite3D" parent="Player"]
+shaded = true
+alpha_cut = 2
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -75,4 +149,17 @@ shape = SubResource( 6 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.00003, 1, 2.24571 )
 current = true
+
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 0.992117, -0.125314, 0, 0.125314, 0.992117, 0.240391, -1.11861, 0.876124 )
+
+[node name="Background" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.72503 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+anims/Dark = SubResource( 10 )
+anims/Light = SubResource( 9 )
 [connection signal="body_entered" from="Player/Area" to="Player" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Player/Area" to="Player" method="_on_Area_body_exited"]
