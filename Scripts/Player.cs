@@ -35,7 +35,7 @@ public class Player : KinematicBody
 	{
 		// Move the camera smoothly toward the player's position
 		Vector3 pos = camera.Translation;
-		camera.Translation = new Vector3(Mathf.Lerp(pos.x, Translation.x, 0.03f), pos.y, Mathf.Lerp(pos.z, Translation.z + 2.5f, 0.03f));
+		camera.Translation = new Vector3(Mathf.Lerp(pos.x, Translation.x, 0.03f), pos.y, Mathf.Lerp(pos.z, Translation.z + 2.2f, 0.03f));
 	
 		if (Input.IsActionJustPressed("debug_1"))
 		{
@@ -90,6 +90,9 @@ public class Player : KinematicBody
 	private void _on_Area_body_exited(Node body)
 	{
 		if (body.IsInGroup("Floor"))
+		{
 			onFloor = false;
+			canJump = false;
+		}
 	}
 }
