@@ -1,0 +1,148 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/MainCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/TEMP.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/TEMP 2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Tileset.tres" type="MeshLibrary" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 0.301961, 0.647059, 0.952941, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 30, 2 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 15, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 30, 20 )
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("./Background:mesh:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.301961, 0.647059, 0.952941, 1 ), Color( 0.584314, 0.0196078, 0.588235, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("./Background:mesh:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.584314, 0.0196078, 0.588235, 1 ), Color( 0.301961, 0.647059, 0.952941, 1 ) ]
+}
+
+[node name="Scene" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="StaticBody4" type="StaticBody" parent="." groups=[
+"Floor",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.4801 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody4"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="StaticBody3" type="StaticBody" parent="." groups=[
+"Floor",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 11.4801 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+transform = Transform( 3.55, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85321, 1.12217, 0.663395 )
+cameraPath = NodePath("../MainCamera")
+backgroundAnimPlayerPath = NodePath("../AnimationPlayer")
+
+[node name="MainCamera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.07641, 0.715999, 1.95515 )
+
+[node name="Background" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.72503 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Dark = SubResource( 8 )
+anims/Light = SubResource( 9 )
+
+[node name="GridMap" type="GridMap" parent="." groups=[
+"Floor",
+]]
+mesh_library = ExtResource( 5 )
+cell_size = Vector3( 0.5, 0.5, 0.5 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, -1610612736, 2, 0, -1610612736, 3, 0, 0, 4, 0, 0, 5, 0, -1610612736, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 536870912, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65528, 0, 536870912, 65529, 0, 0, 65530, 0, 536870912, 65531, 0, 0, 65532, 0, 0, 65533, 0, -1610612736, 65534, 0, 0, 65535, 0, -1610612736, 65542, 0, 0, 65548, 0, 0, 131078, 0, 536870912, 131084, 0, 0, 196614, 0, 0, 196620, 0, 0, 262145, 0, 0, 262146, 0, -1610612736, 262147, 0, 0, 262148, 0, 536870912, 262149, 0, 536870912, 262150, 0, 0, 262151, 0, 0, 262152, 0, 536870912, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 327672, 0, 0, 327673, 0, -1610612736, 327674, 0, -1610612736, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 458744, 0, 0, 458745, 0, 536870912, 458746, 0, 0, 524280, 0, -1610612736, 524281, 0, -1610612736, 524282, 0, -1610612736, 524288, 0, -1610612736, 524289, 0, -1610612736, 524290, 0, -1610612736, 524291, 0, -1610612736, 524292, 0, -1610612736, 524293, 0, -1610612736, 524294, 0, -1610612736, 524295, 0, -1610612736, 524296, 0, -1610612736, 524297, 0, -1610612736, 524298, 0, -1610612736, 524299, 0, -1610612736, 524300, 0, 0, 589816, 0, 0, 589817, 0, -1610612736, 589818, 0, -1610612736, 589819, 0, -1610612736, 589820, 0, -1610612736, 589821, 0, -1610612736, 589822, 0, -1610612736, 589823, 0, -1610612736, 0, 1, -1610612736, 1, 1, -1073741824, 2, 1, 536870912, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 536870912, 65528, 1, 536870912, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 65542, 1, 536870912, 65548, 1, 0, 131078, 1, 0, 131084, 1, 0, 196614, 1, 536870912, 196620, 1, 0, 262145, 1, -1610612736, 262146, 1, -1610612736, 262147, 1, 536870912, 262148, 1, -1610612736, 262149, 1, 536870912, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 536870912, 262155, 1, 0, 262156, 1, 536870912, 327672, 1, 0, 327673, 1, 0, 327674, 1, 0, 393208, 1, 536870912, 393209, 1, 0, 393210, 1, 0, 458744, 1, 0, 458745, 1, 0, 458746, 1, 0, 524280, 1, 0, 524281, 1, 0, 524282, 1, 0, 524288, 1, -1610612736, 524289, 1, -1610612736, 524290, 1, -1610612736, 524291, 1, -1610612736, 524292, 1, -1610612736, 524293, 1, -1610612736, 524294, 1, -1610612736, 524295, 1, -1610612736, 524296, 1, -1610612736, 524297, 1, -1610612736, 524298, 1, -1610612736, 524299, 1, -1610612736, 524300, 1, 0, 589816, 1, -1610612736, 589817, 1, -1610612736, 589818, 1, -1610612736, 589819, 1, -1610612736, 589820, 1, -1610612736, 589821, 1, -1610612736, 589822, 1, -1610612736, 589823, 1, -1610612736, 12, 65516, 0, 12, 65517, 0, 12, 65518, 0, 11, 65519, 0, 10, 65520, 0, 11, 65520, 0, 10, 65521, 536870912, 9, 65522, 536870912, 10, 65522, 536870912, 9, 65523, 0, 8, 65524, 0, 9, 65524, 0, 8, 65525, 0, 8, 65526, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, -1610612736, 3, 65535, -1610612736, 4, 65535, 0, 5, 65535, 0, 6, 65535, -1610612736, 7, 65535, 0, 8, 65535, 536870912, 9, 65535, 536870912, 10, 65535, 0, 11, 65535, 0, 12, 65535, 0, 65528, 65535, 0, 65529, 65535, 0, 65530, 65535, 0, 65531, 65535, 0, 65532, 65535, -1610612736, 65533, 65535, 0, 65534, 65535, -1610612736, 65535, 65535, -1610612736, 65542, 65535, 0, 65548, 65535, 0, 131078, 65535, 0, 131084, 65535, 0, 196614, 65535, 536870912, 196620, 65535, 536870912, 262145, 65535, -1610612736, 262146, 65535, 0, 262147, 65535, 0, 262148, 65535, 536870912, 262149, 65535, 536870912, 262150, 65535, 536870912, 262151, 65535, 536870912, 262152, 65535, 0, 262153, 65535, 536870912, 262154, 65535, 536870912, 262155, 65535, 0, 262156, 65535, 0, 327672, 65535, 0, 327673, 65535, 0, 327674, 65535, 0, 393208, 65535, 0, 393209, 65535, 0, 393210, 65535, 0, 458744, 65535, 0, 458745, 65535, 0, 458746, 65535, 536870912, 524280, 65535, 0, 524281, 65535, -1610612736, 524282, 65535, 0, 524288, 65535, 0, 524289, 65535, 0, 524290, 65535, 0, 524291, 65535, 0, 524292, 65535, 0, 524293, 65535, 0, 524294, 65535, 0, 524295, 65535, 0, 524296, 65535, -1610612736, 524297, 65535, 0, 524298, 65535, -1610612736, 524299, 65535, -1610612736, 524300, 65535, 0, 589816, 65535, -1610612736, 589817, 65535, -1610612736, 589818, 65535, 0, 589819, 65535, 0, 589820, 65535, 0, 589821, 65535, 0, 589822, 65535, -1610612736, 589823, 65535, 0 )
+}
+__meta__ = {
+"_edit_lock_": true,
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 8, 0 )
+}
