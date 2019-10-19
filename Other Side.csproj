@@ -54,6 +54,7 @@
     <Compile Include="Scripts\Player.cs" />
     <Compile Include="Scripts\PushableBlock.cs" />
     <Compile Include="Scripts\Switch.cs" />
+    <Compile Include="Scripts\Test.cs" />
     <Compile Include="Scripts\TransferBlock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
