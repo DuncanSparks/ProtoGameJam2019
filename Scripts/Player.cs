@@ -90,7 +90,13 @@ public class Player : KinematicBody
 			velocity.y = 0;
 			canJump = true;
 			onFloor = true;
-		}	
+		}
+
+		if (body.IsInGroup("TB"))
+		{
+			var t = (TransferBlock)body;
+			t.Transfer();
+		}
 	}
 
 	private void _on_Area_body_exited(Node body)
