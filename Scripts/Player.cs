@@ -18,6 +18,7 @@ public class Player : KinematicBody
 
 	private bool canJump = false;
 	private bool onFloor = false;
+	private bool canGoBack = true;
 
 	private const float Speed = 3f;
 	private const float Gravity = 9.8f;
@@ -43,6 +44,7 @@ public class Player : KinematicBody
 
 	public bool InDarkWorld { get => inDarkWorld; }
 	public bool OnFloor { get => onFloor; }
+	public bool CanGoBack { get => canGoBack; set => canGoBack = value; }
 	public PlayerState State { get => state; set => state = value; }
 	public Tether CurrentTether { set => currentTether = value; }
 
@@ -81,7 +83,7 @@ public class Player : KinematicBody
 
 		if (state == PlayerState.Move)
 		{
-			if (Input.IsActionJustPressed("return") && inDarkWorld)
+			if (Input.IsActionJustPressed("return") && inDarkWorld && canGoBack)
 				GoToLightWorld();
 
 			if (Input.IsActionJustPressed("restart_level"))

@@ -15,6 +15,7 @@ public class Tutorial : Spatial
 		player = GetNode<Player>(playerPath);
 
 		player.State = Player.PlayerState.NoInput;
+		player.CanGoBack = false;
 	}
 
 	// ================================================================
@@ -22,5 +23,11 @@ public class Tutorial : Spatial
 	private void _on_TimerTut1_timeout()
 	{
 		player.GoToDarkWorld(0.95f, true);
+	}
+
+
+	private void AllowGoBack()
+	{
+		player.CanGoBack = true;
 	}
 }
