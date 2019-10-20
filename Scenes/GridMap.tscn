@@ -803,15 +803,15 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Fake Fill/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="Fake Fill2" type="MeshInstance" parent="."]
+[node name="Fake Bottom" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05108, -0.938203, 0 )
 mesh = SubResource( 79 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Fake Fill2"]
+[node name="StaticBody" type="StaticBody" parent="Fake Bottom"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Fake Fill2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Fake Bottom/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="Fake TL Corner" type="MeshInstance" parent="."]
@@ -825,15 +825,15 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Fake TL Corner/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="Fake TL Corner2" type="MeshInstance" parent="."]
+[node name="Fake BR Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3727, -0.938203, 0 )
 mesh = SubResource( 83 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Fake TL Corner2"]
+[node name="StaticBody" type="StaticBody" parent="Fake BR Corner"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Fake TL Corner2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Fake BR Corner/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="Fake TR Corner" type="MeshInstance" parent="."]
