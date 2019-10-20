@@ -4,6 +4,7 @@ using System;
 public class PageDisplay : CanvasLayer
 {
 	private string nextLevel;
+	private bool pressed = false;
 
 	public void SetText(string text)
 	{
@@ -19,10 +20,19 @@ public class PageDisplay : CanvasLayer
 
 	public override void _Process(float delta)
 	{
-		if (Input.IsActionJustPressed("action"))
+		if (Input.IsActionJustPressed("action") && !pressed)
 		{
-			GetTree().ChangeScene(nextLevel);
-			QueueFree();
+			Controller.Fade(true);
+			GetNode<Timer>("Timer").Start();
+			pressed = true;
 		}
+	}
+
+
+	private void _on_Timer_timeout()
+	{
+		GetTree().ChangeScene(nextLevel);
+		Controller.Fade(false);
+		QueueFree();
 	}
 }

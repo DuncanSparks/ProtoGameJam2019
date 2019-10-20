@@ -4,8 +4,7 @@
 [ext_resource path="res://Sprites/message.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/ankecallig-fg.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-size = 32
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
@@ -114,7 +113,7 @@ margin_left = 181.0
 margin_top = 92.0
 margin_right = 780.0
 margin_bottom = 380.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.356863, 0.317647, 0.113725, 1 )
 text = "Hello there I am writing some fancy dancy text in this here piece of paper"
 autowrap = true
@@ -122,9 +121,15 @@ autowrap = true
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 960.0
 margin_bottom = 540.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade out"
 "anims/Fade in" = SubResource( 2 )
 "anims/Fade out" = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
