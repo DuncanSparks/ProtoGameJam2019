@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Player : KinematicBody
+public class PlayerDummy : KinematicBody
 {
 	[Export]
 	private NodePath cameraPath;
@@ -27,7 +27,6 @@ public class Player : KinematicBody
 	private Camera camera;
 	private AnimationPlayer backgroundAnimPlayer;
 	private Timer timerSpawnPlayer2;
-	private Timer timerKillPlayer2;
 
 	private KinematicBody otherPlayer = null;
 
@@ -44,7 +43,6 @@ public class Player : KinematicBody
 		camera = GetNode<Camera>(cameraPath);
 		backgroundAnimPlayer = GetNode<AnimationPlayer>(backgroundAnimPlayerPath);
 		timerSpawnPlayer2 = GetNode<Timer>("TimerSpawnPlayer2");
-		timerKillPlayer2 = GetNode<Timer>("TimerKillPlayer2");
 	}
 
 
@@ -61,66 +59,31 @@ public class Player : KinematicBody
 
 		if (Input.IsActionJustPressed("debug_2"))
 		{
-			GoToLightWorld();
+			Vector3 t = Translation;
+			Translation = new Vector3(t.x, t.y + 1.5f, 0.5f);
+			backgroundAnimPlayer.Play("Light");
 		}
 	}
 
 
 	public override void _PhysicsProcess(float delta)
 	{
-		if (state != PlayerState.NoInput)
-		{
-			// Check for left/right input
-			int x1 = Input.IsActionPressed("move_right") ? 1 : 0;
-			int x2 = Input.IsActionPressed("move_left") ? 1 : 0;
-
-			velocity.x = x1 - x2;
-
-			// Check for jump input
-			if (Input.IsActionJustPressed("move_jump") && canJump)
-			{
-				velocity.y = JumpForce;
-				canJump = false;
-			}
-
-			// If we aren't on the floor, accelerate downward (gravity)
-			if (!onFloor)
-				velocity.y -= Gravity * delta;
-
-			// Apply velocity to player
-			MoveAndSlide(velocity * Speed, new Vector3(0, 1, 0));
-		}
+		
 	}
 
 
 	private void GoToDarkWorld()
 	{
-		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
 		var p2 = (KinematicBody)Player2Ref.Instance();
 		otherPlayer = p2;
-		otherPlayer.Translation = Translation;
 		GetTree().GetRoot().AddChild(p2);
 
 		Hide();
-		Translation = new Vector3(t.x, t.y, 11.5f);
+		Translation = new Vector3(t.x, t.y + 1.5f, 11.5f);
 		backgroundAnimPlayer.Play("Dark");
 		camera.GetNode<MeshInstance>("DarkBall").Show();
-		timerSpawnPlayer2.Start();
-	}
-
-
-	private void GoToLightWorld()
-	{
-		state = PlayerState.NoInput;
-		Vector3 t = Translation;
-
-		Hide();
-		Translation = otherPlayer.Translation;
-		backgroundAnimPlayer.Play("Light");
-		camera.GetNode<MeshInstance>("DarkBall").Show();
-		timerKillPlayer2.Start();
 	}
 
 
@@ -132,6 +95,8 @@ public class Player : KinematicBody
 			canJump = true;
 			onFloor = true;
 		}
+
+		
 	}
 
 	private void _on_Area_body_exited(Node body)
@@ -156,17 +121,6 @@ public class Player : KinematicBody
 
 	private void _on_TimerSpawnPlayer2_timeout()
 	{
-		Show();
-		camera.GetNode<MeshInstance>("DarkBall").Hide();
-		state = PlayerState.Move;
-	}
 
-
-	private void _on_TimerKillPlayer2_timeout()
-	{
-		otherPlayer.QueueFree();
-		Show();
-		camera.GetNode<MeshInstance>("DarkBall").Hide();
-		state = PlayerState.Move;
 	}
 }

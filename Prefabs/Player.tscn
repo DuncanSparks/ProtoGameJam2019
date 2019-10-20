@@ -45,8 +45,6 @@ tracks/0/keys = {
 "Player",
 ]]
 script = ExtResource( 1 )
-cameraPath = NodePath("../Camera")
-backgroundAnimPlayerPath = NodePath("../Background/AnimationPlayer")
 
 [node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121666, 0 )
@@ -75,7 +73,16 @@ autoplay = "Idle"
 playback_speed = 1.5
 anims/Idle = SubResource( 3 )
 anims/Walk = SubResource( 4 )
+
+[node name="TimerSpawnPlayer2" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="TimerKillPlayer2" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
-[connection signal="body_exited" from="Area2" to="." method="_on_Area2_body_exited"]
+[connection signal="timeout" from="TimerSpawnPlayer2" to="." method="_on_TimerSpawnPlayer2_timeout"]
+[connection signal="timeout" from="TimerKillPlayer2" to="." method="_on_TimerKillPlayer2_timeout"]
