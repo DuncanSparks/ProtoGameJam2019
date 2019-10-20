@@ -125,10 +125,15 @@ public class Player : KinematicBody
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
+		var parts = (Particles)PartsAppearRef.Instance();
+		parts.Translation = Translation;
+		parts.Emitting = true;
+		GetTree().GetRoot().AddChild(parts);
+
 		var p2 = (KinematicBody)Player2Ref.Instance();
 		otherPlayer = p2;
 		otherPlayer.Translation = Translation;
-		GetTree().GetRoot().AddChild(p2);
+		GetTree().GetRoot().GetNode<Spatial>("Scene").AddChild(p2);
 
 		Hide();
 		Translation = new Vector3(t.x, t.y, 11.7f);
@@ -147,6 +152,11 @@ public class Player : KinematicBody
 	{
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
+
+		var parts = (Particles)PartsAppearRef.Instance();
+		parts.Translation = Translation;
+		parts.Emitting = true;
+		GetTree().GetRoot().AddChild(parts);
 
 		Hide();
 		Translation = otherPlayer.Translation;
