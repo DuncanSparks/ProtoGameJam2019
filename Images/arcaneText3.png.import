@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DW_background.png-9474f2eebfb4c96e12465ac8297c535a.stex"
+path="res://.import/arcaneText3.png-c9693061dbb0a23b0854f9591ac99540.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/DW_background.png"
-dest_files=[ "res://.import/DW_background.png-9474f2eebfb4c96e12465ac8297c535a.stex" ]
+source_file="res://Images/arcaneText3.png"
+dest_files=[ "res://.import/arcaneText3.png-c9693061dbb0a23b0854f9591ac99540.stex" ]
 
 [params]
 
@@ -27,7 +27,7 @@ flags/srgb=0
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=true
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false
