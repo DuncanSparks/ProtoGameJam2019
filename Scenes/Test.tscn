@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/MainCamera.tscn" type="PackedScene" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Sprites/DW_background.png" type="Texture" id=5]
 [ext_resource path="res://Prefabs/PushableBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Tileset.tres" type="MeshLibrary" id=7]
-[ext_resource path="res://Scripts/DarknessPool.cs" type="Script" id=8]
+[ext_resource path="res://Prefabs/DarknessPool.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Interact.png" type="Texture" id=9]
 [ext_resource path="res://Prefabs/SwitchBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/Switch.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Tether.cs" type="Script" id=12]
+[ext_resource path="res://Prefabs/Page.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -80,17 +81,13 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 1, -1, 0 ) ]
 }
 
-[sub_resource type="CubeMesh" id=9]
-
-[sub_resource type="BoxShape" id=10]
-
-[sub_resource type="PrismMesh" id=11]
+[sub_resource type="PrismMesh" id=9]
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="BoxShape" id=13]
+[sub_resource type="BoxShape" id=11]
 extents = Vector3( 0.331566, 1, 1 )
 
 [node name="Scene" type="Spatial"]
@@ -152,24 +149,7 @@ autoplay = "Background"
 playback_speed = 0.1
 anims/Background = SubResource( 8 )
 
-[node name="DarknessPool" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 5.82745, 0.309264, -0.0156775 )
-mesh = SubResource( 9 )
-material/0 = null
-script = ExtResource( 8 )
-
-[node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 5.82745, 0.309264, -0.0156775 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 5.82745, 0.309264, -0.0156775 )
-shape = SubResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="DarknessPool" parent="." instance=ExtResource( 8 )]
 
 [node name="DarkBall2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5 )
@@ -190,13 +170,15 @@ partnerSwitch = NodePath("../../Scene/Switch")
 
 [node name="Tether" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42779, 1.23083, 0 )
-mesh = SubResource( 11 )
-material/0 = SubResource( 12 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
 script = ExtResource( 12 )
 
 [node name="Area" type="Area" parent="Tether"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Tether/Area"]
-shape = SubResource( 13 )
+shape = SubResource( 11 )
+
+[node name="Page" parent="." instance=ExtResource( 13 )]
 [connection signal="body_entered" from="Tether/Area" to="Tether" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Tether/Area" to="Tether" method="_on_Area_body_exited"]
