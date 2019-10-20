@@ -53,6 +53,7 @@
     <Compile Include="Scripts\CreditScreen.cs" />
     <Compile Include="Scripts\DarknessPool.cs" />
     <Compile Include="Scripts\Controller.cs" />
+    <Compile Include="Scripts\Invisible.cs" />
     <Compile Include="Scripts\Page.cs" />
     <Compile Include="Scripts\PauseMenu.cs" />
     <Compile Include="Scripts\Player.cs" />
