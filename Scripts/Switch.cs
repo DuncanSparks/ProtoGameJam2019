@@ -4,7 +4,10 @@ using System;
 public class Switch : StaticBody
 {
 	[Signal]
-	public delegate void pulled();
+	public delegate void pulled_on();
+	
+	[Signal]
+	public delegate void pulled_off();
 
 	[Export]
 	private NodePath partnerSwitch;
@@ -36,6 +39,7 @@ public class Switch : StaticBody
 		{
 			Trigger();
 			partner.Trigger();
+			EmitSignal(on ? nameof(pulled_on) : nameof(pulled_off));
 		}
 	}
 

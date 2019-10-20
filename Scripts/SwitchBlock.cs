@@ -22,7 +22,7 @@ public class SwitchBlock : StaticBody
 	public override void _PhysicsProcess(float delta)
 	{
 		Vector3 pos = Translation;
-		Translation = new Vector3(Controller.LerpDelta(pos.x, target.x, 0.3f, delta), Controller.LerpDelta(pos.y, target.y, 0.3f, delta), pos.z);
+		Translation = new Vector3(Controller.LerpDelta(pos.x, target.x, 0.1f, delta), Controller.LerpDelta(pos.y, target.y, 0.1f, delta), pos.z);
 	}
 
 
