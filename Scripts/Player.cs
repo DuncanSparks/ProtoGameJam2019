@@ -19,20 +19,21 @@ public class Player : KinematicBody
 	private bool canJump = false;
 	private bool onFloor = false;
 
-	//private bool walking = false;
-
 	private const float Speed = 3f;
 	private const float Gravity = 9.8f;
 	private const float JumpForce = 3f;
 
 	private Sprite3D sprite;
+	private Sprite3D spriteInteract;
 	private Camera camera;
 	private AnimationPlayer animPlayer;
 	private AnimationPlayer backgroundAnimPlayer;
 	private Timer timerSpawnPlayer2;
 	private Timer timerKillPlayer2;
+	private Timer timerResetTether;
 
 	private KinematicBody otherPlayer = null;
+	private Tether currentTether = null;
 
 	private PackedScene Player2Ref = GD.Load<PackedScene>("res://Prefabs/PlayerDummy.tscn");
 	private PackedScene PartsAppearRef = GD.Load<PackedScene>("res://Prefabs/Particles/PartsAppear.tscn");
@@ -40,17 +41,23 @@ public class Player : KinematicBody
 	// ================================================================
 
 	public bool InDarkWorld { get => inDarkWorld; }
+	public PlayerState State { get => state; }
+	public Tether CurrentTether { set => currentTether = value; }
 
 	// ================================================================
 	
 	public override void _Ready()
 	{
 		sprite = GetNode<Sprite3D>("Sprite");
+		spriteInteract = GetNode<Sprite3D>("Interact");
 		camera = GetNode<Camera>(cameraPath);
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		backgroundAnimPlayer = GetNode<AnimationPlayer>(backgroundAnimPlayerPath);
 		timerSpawnPlayer2 = GetNode<Timer>("TimerSpawnPlayer2");
 		timerKillPlayer2 = GetNode<Timer>("TimerKillPlayer2");
+		timerResetTether = GetNode<Timer>("TimerResetTether");
+
+		spriteInteract.Hide();
 	}
 
 
@@ -59,8 +66,6 @@ public class Player : KinematicBody
 		// Move the camera smoothly toward the player's position
 		Vector3 pos = camera.Translation;
 		camera.Translation = new Vector3(Controller.LerpDelta(pos.x, Translation.x, 0.03f, delta), Controller.LerpDelta(pos.y, Translation.y + 0.25f, 0.02f, delta), Controller.LerpDelta(pos.z, Translation.z + 2.2f, 0.03f, delta));
-	
-		//walking = velocity.x != 0;
 
 		if (Input.IsActionJustPressed("move_left"))
 			sprite.FlipH = true;
@@ -68,22 +73,17 @@ public class Player : KinematicBody
 		if (Input.IsActionJustPressed("move_right"))
 			sprite.FlipH = false;
 
-		//if (Input.IsActionJustReleased("move_left") || Input.IsActionJustReleased("move_right"))
-		//	animPlayer.Play("Idle");
 		animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
 
-		if (Input.IsActionJustPressed("debug_1"))
+		if (state == PlayerState.Move)
 		{
-			GoToDarkWorld();
-		}
+			if (Input.IsActionJustPressed("return") && inDarkWorld)
+			{
+				GoToLightWorld();
+			}
 
-		if (Input.IsActionJustPressed("debug_2"))
-		{
-			GoToLightWorld();
-		}
-		if (Input.IsActionJustPressed("restart_level"))
-		{
-			GetTree().ReloadCurrentScene();
+			if (Input.IsActionJustPressed("restart_level"))
+				GetTree().ReloadCurrentScene();
 		}
 	}
 
@@ -114,8 +114,15 @@ public class Player : KinematicBody
 		}
 	}
 
+	// ================================================================
 
-	private void GoToDarkWorld()
+	public void ShowInteract(bool show)
+	{
+		spriteInteract.Visible = show;
+	}
+
+
+	public void GoToDarkWorld()
 	{
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
@@ -126,7 +133,7 @@ public class Player : KinematicBody
 		GetTree().GetRoot().AddChild(p2);
 
 		Hide();
-		Translation = new Vector3(t.x, t.y, 11.5f);
+		Translation = new Vector3(t.x, t.y, 11.7f);
 		backgroundAnimPlayer.Play("Dark");
 
 		var ball = camera.GetNode<MeshInstance>("DarkBall");
@@ -138,7 +145,7 @@ public class Player : KinematicBody
 	}
 
 
-	private void GoToLightWorld()
+	public void GoToLightWorld()
 	{
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
@@ -155,6 +162,7 @@ public class Player : KinematicBody
 		timerKillPlayer2.Start();
 	}
 
+	// ================================================================
 
 	private void _on_Area_body_entered(Node body)
 	{
@@ -210,5 +218,12 @@ public class Player : KinematicBody
 		Show();
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
 		state = PlayerState.Move;
+		timerResetTether.Start();
+	}
+
+
+	private void _on_TimerResetTether_timeout()
+	{
+		currentTether.InArea = true;
 	}
 }

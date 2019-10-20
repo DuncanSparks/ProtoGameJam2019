@@ -22,6 +22,7 @@ public class Switch : StaticBody
 
 	private bool on = false;
 
+	private Player player;
 	private AnimationPlayer animationPlayer;
 
 	// ================================================================
@@ -30,6 +31,7 @@ public class Switch : StaticBody
 	{
 		partner = GetNode<Switch>(partnerSwitch);
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		player = GetTree().GetRoot().GetNode<Spatial>("Scene").GetNode<Player>("Player");
 	}
 
 
@@ -55,13 +57,19 @@ public class Switch : StaticBody
 	private void _on_AreaInteract_body_entered(Node body)
 	{
 		if (body.IsInGroup("Player"))
+		{
+			player.ShowInteract(true);
 			inArea = true;
+		}
 	}
 
 
 	private void _on_AreaInteract_body_exited(Node body)
 	{
 		if (body.IsInGroup("Player"))
+		{
+			player.ShowInteract(false);
 			inArea = false;
+		}
 	}
 }

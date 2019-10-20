@@ -62,6 +62,7 @@
     <Compile Include="Scripts\Switch.cs" />
     <Compile Include="Scripts\SwitchBlock.cs" />
     <Compile Include="Scripts\SwitchTiles.cs" />
+    <Compile Include="Scripts\Tether.cs" />
     <Compile Include="Scripts\TitleScreen.cs" />
     <Compile Include="Scripts\TransferBlock.cs" />
   </ItemGroup>

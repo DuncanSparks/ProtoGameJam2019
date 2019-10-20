@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/mcL_idle.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/mcD_idle.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/mcL_walk.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/mcD_walk.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Interact.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/mcD_idle.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/mcL_walk.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/mcD_walk.png" type="Texture" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.1805, 0.370368, 0.0173598 )
@@ -53,7 +54,7 @@ tracks/2/keys = {
 "values": [ 17 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "IdleDark"
 loop = true
 tracks/0/type = "value"
@@ -78,7 +79,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 84.4485 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:hframes")
@@ -93,8 +94,7 @@ tracks/2/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Walk"
+[sub_resource type="Animation" id=5]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -107,7 +107,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 45.2548 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -148,7 +148,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 35.5062 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -175,6 +175,22 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "Interact"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
 [node name="Player" type="KinematicBody" groups=[
 "Player",
 ]]
@@ -186,6 +202,10 @@ shaded = true
 alpha_cut = 2
 texture = ExtResource( 2 )
 hframes = 17
+
+[node name="Interact" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.718311, 0 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
@@ -206,9 +226,13 @@ shape = SubResource( 2 )
 autoplay = "Idle"
 playback_speed = 1.5
 anims/Idle = SubResource( 3 )
-anims/IdleDark = SubResource( 5 )
-anims/Walk = SubResource( 4 )
+anims/IdleDark = SubResource( 4 )
+anims/Walk = SubResource( 5 )
 anims/WalkDark = SubResource( 6 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "Interact"
+anims/Interact = SubResource( 7 )
 
 [node name="TimerSpawnPlayer2" type="Timer" parent="."]
 wait_time = 1.5
@@ -217,8 +241,13 @@ one_shot = true
 [node name="TimerKillPlayer2" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="TimerResetTether" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
 [connection signal="timeout" from="TimerSpawnPlayer2" to="." method="_on_TimerSpawnPlayer2_timeout"]
 [connection signal="timeout" from="TimerKillPlayer2" to="." method="_on_TimerKillPlayer2_timeout"]
+[connection signal="timeout" from="TimerResetTether" to="." method="_on_TimerResetTether_timeout"]
