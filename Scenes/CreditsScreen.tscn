@@ -99,7 +99,6 @@ custom_colors/font_color = Color( 0.898039, 0.898039, 0.898039, 1 )
 text = "Rami Shreim - Artist"
 
 [node name="Right" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-editor/display_folded = true
 margin_left = 418.0
 margin_right = 801.0
 margin_bottom = 212.0

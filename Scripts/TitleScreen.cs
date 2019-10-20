@@ -4,12 +4,18 @@ using System;
 public class TitleScreen : Control
 {
     private string GAME_PATH = "res://Scenes/Test.tscn";
+    private string ABOUT_PATH = "res://Scenes/AboutScreen.tscn";
     private string CREDITS_PATH = "res://Scenes/CreditsScreen.tscn"; // Temporary path
 
     private void _on_PlayButton_pressed()
     {
         GD.Print("Play");
         GetTree().ChangeScene(GAME_PATH);
+    }
+
+    private void _on_AboutButton_pressed()
+    {
+        GetTree().ChangeScene(ABOUT_PATH);
     }
 
     private void _on_CreditsButton_pressed()
