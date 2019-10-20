@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://Sprites/Tilesets/Test.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/Dark_Stonefill_UV.png" type="Texture" id=2]
@@ -22,36 +22,37 @@
 [ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonetop_UV.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_L_UV.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_R_UV.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_UV.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_Emissive.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_UV.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_Emissive.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Tilesets/StoneFill_UV.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneBottom_UV.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_BottomCap_UV.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Tilesets/StoneCorner_L_UV.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BR_UV.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Tilesets/StoneCorner_R_UV.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BL_UV.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_TopCap_UV.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Tilesets/StoneTop_UV.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneFill_UV.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneBottom_UV.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_L_UV.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BR_UV.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_R_UV.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BL_UV.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneTop_UV.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_L_UV.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_R_UV.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/transfer block.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_UV.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_Emissive.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_UV.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_Emissive.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Tilesets/StoneFill_UV.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneBottom_UV.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_BottomCap_UV.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Tilesets/StoneCorner_L_UV.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BR_UV.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Tilesets/StoneCorner_R_UV.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BL_UV.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_TopCap_UV.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Tilesets/StoneTop_UV.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneFill_UV.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneBottom_UV.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_L_UV.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BR_UV.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_R_UV.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BL_UV.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneTop_UV.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_L_UV.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_R_UV.png" type="Texture" id=47]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=175]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="CubeMesh" id=176]
+material = SubResource( 175 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
@@ -60,7 +61,7 @@ points = PoolVector3Array( -0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, 0.25, 0.2
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=260]
 material = SubResource( 4 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
@@ -211,174 +212,181 @@ albedo_texture = ExtResource( 6 )
 material = SubResource( 46 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=48]
+[sub_resource type="SpatialMaterial" id=261]
 albedo_texture = ExtResource( 23 )
+
+[sub_resource type="CubeMesh" id=262]
+material = SubResource( 261 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=48]
+albedo_texture = ExtResource( 24 )
 emission_enabled = true
 emission = Color( 0.772549, 0, 0.8, 1 )
 emission_energy = 1.0
 emission_operator = 1
 emission_on_uv2 = false
-emission_texture = ExtResource( 24 )
+emission_texture = ExtResource( 25 )
 
 [sub_resource type="CubeMesh" id=49]
 material = SubResource( 48 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=50]
-albedo_texture = ExtResource( 25 )
+albedo_texture = ExtResource( 26 )
 emission_enabled = true
 emission = Color( 0.772549, 0, 0.8, 1 )
 emission_energy = 1.0
 emission_operator = 1
 emission_on_uv2 = false
-emission_texture = ExtResource( 26 )
+emission_texture = ExtResource( 27 )
 
 [sub_resource type="CubeMesh" id=51]
 material = SubResource( 50 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=52]
-albedo_texture = ExtResource( 27 )
+albedo_texture = ExtResource( 28 )
 
 [sub_resource type="CubeMesh" id=53]
 material = SubResource( 52 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=54]
-albedo_texture = ExtResource( 28 )
+albedo_texture = ExtResource( 29 )
 
 [sub_resource type="CubeMesh" id=55]
 material = SubResource( 54 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=56]
-albedo_texture = ExtResource( 29 )
+albedo_texture = ExtResource( 30 )
 
 [sub_resource type="CubeMesh" id=57]
 material = SubResource( 56 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=58]
-albedo_texture = ExtResource( 30 )
+albedo_texture = ExtResource( 31 )
 
 [sub_resource type="CubeMesh" id=59]
 material = SubResource( 58 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=60]
-albedo_texture = ExtResource( 31 )
+albedo_texture = ExtResource( 32 )
 
 [sub_resource type="CubeMesh" id=61]
 material = SubResource( 60 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=62]
-albedo_texture = ExtResource( 23 )
+albedo_texture = ExtResource( 24 )
 
 [sub_resource type="CubeMesh" id=63]
 material = SubResource( 62 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=64]
-albedo_texture = ExtResource( 32 )
+albedo_texture = ExtResource( 33 )
 
 [sub_resource type="CubeMesh" id=65]
 material = SubResource( 64 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=66]
-albedo_texture = ExtResource( 33 )
+albedo_texture = ExtResource( 34 )
 
 [sub_resource type="CubeMesh" id=67]
 material = SubResource( 66 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=68]
-albedo_texture = ExtResource( 34 )
+albedo_texture = ExtResource( 35 )
 
 [sub_resource type="CubeMesh" id=69]
 material = SubResource( 68 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=70]
-albedo_texture = ExtResource( 35 )
+albedo_texture = ExtResource( 36 )
 
 [sub_resource type="CubeMesh" id=71]
 material = SubResource( 70 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=72]
-albedo_texture = ExtResource( 36 )
+albedo_texture = ExtResource( 37 )
 
 [sub_resource type="CubeMesh" id=73]
 material = SubResource( 72 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=74]
-albedo_texture = ExtResource( 37 )
+albedo_texture = ExtResource( 38 )
 
 [sub_resource type="CubeMesh" id=75]
 material = SubResource( 74 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=76]
-albedo_texture = ExtResource( 38 )
+albedo_texture = ExtResource( 39 )
 
 [sub_resource type="CubeMesh" id=77]
 material = SubResource( 76 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=78]
-albedo_texture = ExtResource( 39 )
+albedo_texture = ExtResource( 40 )
 
 [sub_resource type="CubeMesh" id=79]
 material = SubResource( 78 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=80]
-albedo_texture = ExtResource( 40 )
+albedo_texture = ExtResource( 41 )
 
 [sub_resource type="CubeMesh" id=81]
 material = SubResource( 80 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=82]
-albedo_texture = ExtResource( 41 )
+albedo_texture = ExtResource( 42 )
 
 [sub_resource type="CubeMesh" id=83]
 material = SubResource( 82 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=84]
-albedo_texture = ExtResource( 42 )
+albedo_texture = ExtResource( 43 )
 
 [sub_resource type="CubeMesh" id=85]
 material = SubResource( 84 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=86]
-albedo_texture = ExtResource( 43 )
+albedo_texture = ExtResource( 44 )
 
 [sub_resource type="CubeMesh" id=87]
 material = SubResource( 86 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=88]
-albedo_texture = ExtResource( 44 )
+albedo_texture = ExtResource( 45 )
 
 [sub_resource type="CubeMesh" id=89]
 material = SubResource( 88 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=90]
-albedo_texture = ExtResource( 45 )
+albedo_texture = ExtResource( 46 )
 
 [sub_resource type="CubeMesh" id=91]
 material = SubResource( 90 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=92]
-albedo_texture = ExtResource( 46 )
+albedo_texture = ExtResource( 47 )
 
 [sub_resource type="CubeMesh" id=93]
 material = SubResource( 92 )
@@ -389,7 +397,7 @@ size = Vector3( 0.5, 0.5, 0.5 )
 [node name="Invisible" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58463, 0, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 176 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Invisible"]
@@ -400,7 +408,7 @@ shape = SubResource( 3 )
 [node name="DarkFill" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815486, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 260 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkFill"]
@@ -637,6 +645,17 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="DarkCrack"]
 
 [node name="CollisionShape" type="CollisionShape" parent="DarkCrack/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SwitchTile" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57258, 1.72652, 0 )
+mesh = SubResource( 262 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="SwitchTile"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SwitchTile/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="LightCrack" type="MeshInstance" parent="."]
