@@ -17,7 +17,7 @@ public class Player : KinematicBody
 	private bool canJump = false;
 	private bool onFloor = false;
 
-	private const float Speed = 2f;
+	private const float Speed = 3f;
 	private const float Gravity = 9.8f;
 	private const float JumpForce = 3f;
 
