@@ -13,6 +13,8 @@ public class Controller : Node
 
 	private bool paused = false;
 
+	private AnimationPlayer animPlayer;
+
 	private PackedScene PauseMenuRef = GD.Load<PackedScene>("res://Scenes/PauseMenu.tscn");
 
 	// ================================================================
@@ -20,6 +22,12 @@ public class Controller : Node
 	public static bool Paused { get => Controller.Singleton.paused; set => Controller.Singleton.paused = value; }
 
 	// ================================================================
+
+	public override void _Ready()
+	{
+		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+	}
+
 
 	public override void _Process(float delta)
 	{
@@ -41,5 +49,11 @@ public class Controller : Node
 	public static float LerpDelta(float from, float to, float weight, float delta)
 	{
 		return Mathf.Lerp(from, to, 1f - Mathf.Pow(weight, delta));
+	}
+
+
+	public static void Crossfade(bool dark)
+	{
+		Controller.Singleton.animPlayer.Play(dark ? "ToDark" : "ToLight");
 	}
 }
