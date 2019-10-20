@@ -13,11 +13,11 @@
 [ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=12]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=28]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="CubeMesh" id=29]
+material = SubResource( 28 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
@@ -26,7 +26,7 @@ points = PoolVector3Array( -0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, 0.25, 0.2
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=48]
 material = SubResource( 4 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
@@ -104,7 +104,7 @@ size = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Fill" type="MeshInstance" parent="."]
 editor/display_folded = true
-mesh = SubResource( 2 )
+mesh = SubResource( 29 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fill"]
@@ -115,7 +115,7 @@ shape = SubResource( 3 )
 [node name="DarkFill" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815486, 0 )
-mesh = SubResource( 5 )
+mesh = SubResource( 48 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkFill"]
