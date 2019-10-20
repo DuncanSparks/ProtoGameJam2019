@@ -24,6 +24,8 @@ public class Player : KinematicBody
 	private const float Gravity = 9.8f;
 	private const float JumpForce = 3f;
 
+	private float startZ;
+
 	private Sprite3D sprite;
 	private Sprite3D spriteInteract;
 	private Camera camera;
@@ -63,6 +65,8 @@ public class Player : KinematicBody
 		timerResetTether = GetNode<Timer>("TimerResetTether");
 
 		spriteInteract.Hide();
+
+		startZ = Translation.z;
 	}
 
 
@@ -120,6 +124,12 @@ public class Player : KinematicBody
 
 			// Apply velocity to player
 			MoveAndSlide(velocity * Speed, new Vector3(0, 1, 0));
+
+			if (state == PlayerState.Move)
+			{
+				var t = Translation;
+				Translation = new Vector3(t.x, t.y, inDarkWorld ? startZ + 11f : startZ);
+			}
 		}
 	}
 
@@ -144,7 +154,7 @@ public class Player : KinematicBody
 		GetTree().GetRoot().GetNode<Spatial>("Scene").AddChild(p2);
 
 		Hide();
-		Translation = special ? new Vector3(pos, t.y, 11.7f) : new Vector3(t.x, t.y, 11.7f);
+		Translation = special ? new Vector3(pos, t.y, 11f) : new Vector3(t.x, t.y, 11f);
 		backgroundAnimPlayer.Play("Dark");
 
 		if (!special)
