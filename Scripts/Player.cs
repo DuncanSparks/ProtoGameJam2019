@@ -19,12 +19,15 @@ public class Player : KinematicBody
 	private bool canJump = false;
 	private bool onFloor = false;
 
+	//private bool walking = false;
+
 	private const float Speed = 3f;
 	private const float Gravity = 9.8f;
 	private const float JumpForce = 3f;
 
 	private Sprite3D sprite;
 	private Camera camera;
+	private AnimationPlayer animPlayer;
 	private AnimationPlayer backgroundAnimPlayer;
 	private Timer timerSpawnPlayer2;
 	private Timer timerKillPlayer2;
@@ -41,7 +44,9 @@ public class Player : KinematicBody
 	
 	public override void _Ready()
 	{
+		sprite = GetNode<Sprite3D>("Sprite");
 		camera = GetNode<Camera>(cameraPath);
+		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		backgroundAnimPlayer = GetNode<AnimationPlayer>(backgroundAnimPlayerPath);
 		timerSpawnPlayer2 = GetNode<Timer>("TimerSpawnPlayer2");
 		timerKillPlayer2 = GetNode<Timer>("TimerKillPlayer2");
@@ -54,6 +59,18 @@ public class Player : KinematicBody
 		Vector3 pos = camera.Translation;
 		camera.Translation = new Vector3(Controller.LerpDelta(pos.x, Translation.x, 0.03f, delta), Controller.LerpDelta(pos.y, Translation.y + 0.25f, 0.02f, delta), Controller.LerpDelta(pos.z, Translation.z + 2.2f, 0.03f, delta));
 	
+		//walking = velocity.x != 0;
+
+		if (Input.IsActionJustPressed("move_left"))
+			sprite.FlipH = true;
+		
+		if (Input.IsActionJustPressed("move_right"))
+			sprite.FlipH = false;
+
+		//if (Input.IsActionJustReleased("move_left") || Input.IsActionJustReleased("move_right"))
+		//	animPlayer.Play("Idle");
+		animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
+
 		if (Input.IsActionJustPressed("debug_1"))
 		{
 			GoToDarkWorld();
@@ -111,6 +128,8 @@ public class Player : KinematicBody
 		Translation = new Vector3(t.x, t.y, 11.5f);
 		backgroundAnimPlayer.Play("Dark");
 		camera.GetNode<MeshInstance>("DarkBall").Show();
+
+		inDarkWorld = true;
 		timerSpawnPlayer2.Start();
 	}
 
@@ -124,6 +143,8 @@ public class Player : KinematicBody
 		Translation = otherPlayer.Translation;
 		backgroundAnimPlayer.Play("Light");
 		camera.GetNode<MeshInstance>("DarkBall").Show();
+
+		inDarkWorld = false;
 		timerKillPlayer2.Start();
 	}
 
