@@ -3,7 +3,7 @@ using System;
 
 public class TitleScreen : Control
 {
-    private string GAME_PATH = "res://Scenes/Test.tscn";
+    private string GAME_PATH = "res://Scenes/Tutorial.tscn";
     private string ABOUT_PATH = "res://Scenes/AboutScreen.tscn";
     private string CREDITS_PATH = "res://Scenes/CreditsScreen.tscn"; // Temporary path
 
