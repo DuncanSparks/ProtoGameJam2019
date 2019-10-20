@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\DarknessPool.cs" />
     <Compile Include="Scripts\Controller.cs" />
+    <Compile Include="Scripts\PauseMenu.cs" />
     <Compile Include="Scripts\Player.cs" />
     <Compile Include="Scripts\PushableBlock.cs" />
     <Compile Include="Scripts\Switch.cs" />
