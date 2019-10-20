@@ -35,6 +35,7 @@ public class Player : KinematicBody
 	private KinematicBody otherPlayer = null;
 
 	private PackedScene Player2Ref = GD.Load<PackedScene>("res://Prefabs/PlayerDummy.tscn");
+	private PackedScene PartsAppearRef = GD.Load<PackedScene>("res://Prefabs/Particles/PartsAppear.tscn");
 
 	// ================================================================
 
@@ -127,7 +128,10 @@ public class Player : KinematicBody
 		Hide();
 		Translation = new Vector3(t.x, t.y, 11.5f);
 		backgroundAnimPlayer.Play("Dark");
-		camera.GetNode<MeshInstance>("DarkBall").Show();
+
+		var ball = camera.GetNode<MeshInstance>("DarkBall");
+		ball.Show();
+		ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
 
 		inDarkWorld = true;
 		timerSpawnPlayer2.Start();
@@ -142,7 +146,10 @@ public class Player : KinematicBody
 		Hide();
 		Translation = otherPlayer.Translation;
 		backgroundAnimPlayer.Play("Light");
-		camera.GetNode<MeshInstance>("DarkBall").Show();
+		
+		var ball = camera.GetNode<MeshInstance>("DarkBall");
+		ball.Show();
+		ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
 
 		inDarkWorld = false;
 		timerKillPlayer2.Start();
@@ -181,6 +188,11 @@ public class Player : KinematicBody
 
 	private void _on_TimerSpawnPlayer2_timeout()
 	{
+		var parts = (Particles)PartsAppearRef.Instance();
+		parts.Translation = Translation;
+		parts.Emitting = true;
+		GetTree().GetRoot().AddChild(parts);
+
 		Show();
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
 		state = PlayerState.Move;
@@ -189,6 +201,11 @@ public class Player : KinematicBody
 
 	private void _on_TimerKillPlayer2_timeout()
 	{
+		var parts = (Particles)PartsAppearRef.Instance();
+		parts.Translation = Translation;
+		parts.Emitting = true;
+		GetTree().GetRoot().AddChild(parts);
+
 		otherPlayer.QueueFree();
 		Show();
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
