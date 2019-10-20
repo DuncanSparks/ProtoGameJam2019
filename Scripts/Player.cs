@@ -42,7 +42,7 @@ public class Player : KinematicBody
 
 	public bool InDarkWorld { get => inDarkWorld; }
 	public bool OnFloor { get => onFloor; }
-	public PlayerState State { get => state; }
+	public PlayerState State { get => state; set => state = value; }
 	public Tether CurrentTether { set => currentTether = value; }
 
 	// ================================================================

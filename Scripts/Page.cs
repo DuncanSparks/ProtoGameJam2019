@@ -3,9 +3,17 @@ using System;
 
 public class Page : Sprite3D
 {
+	[Export(PropertyHint.File, "*.tscn")]
+	private string nextLevel = string.Empty;
+
+	[Export(PropertyHint.MultilineText)]
+	private string pageText = string.Empty;
+
     private Player player;
 
 	private bool inArea = false;
+
+	private PackedScene PageDisplayRef = GD.Load<PackedScene>("res://Prefabs/PageDisplay.tscn");
 
 	// ================================================================
 
@@ -22,7 +30,11 @@ public class Page : Sprite3D
 	{
 		if (Input.IsActionJustPressed("action") && inArea && player.State == Player.PlayerState.Move && player.OnFloor)
 		{
-			GetTree().ChangeScene("res://Scenes/Level1.tscn");
+			player.State = Player.PlayerState.NoInput;
+			var page = (PageDisplay)PageDisplayRef.Instance();
+			page.SetText(pageText);
+			page.SetNextLevel(nextLevel);
+			GetTree().GetRoot().AddChild(page);
 		}
 	}
 
