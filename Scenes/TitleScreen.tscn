@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
-[ext_resource path="res://Images/Placeholder/Background.png" type="Texture" id=2]
-[ext_resource path="res://Images/arcaneText.png" type="Texture" id=3]
-[ext_resource path="res://Images/Placeholder/Play.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/title_background.png" type="Texture" id=2]
+[ext_resource path="res://Images/arcaneText2.png" type="Texture" id=3]
+[ext_resource path="res://Images/Play.png" type="Texture" id=4]
 [ext_resource path="res://Images/Placeholder/Options.png" type="Texture" id=5]
-[ext_resource path="res://Images/Placeholder/Credits.png" type="Texture" id=6]
-[ext_resource path="res://Images/Placeholder/Quit.png" type="Texture" id=7]
+[ext_resource path="res://Images/Credits.png" type="Texture" id=6]
+[ext_resource path="res://Images/Quit.png" type="Texture" id=7]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
@@ -16,7 +16,10 @@ script = ExtResource( 1 )
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1519.0
+margin_bottom = 952.0
 texture = ExtResource( 2 )
+stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -28,41 +31,40 @@ margin_bottom = 440.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 800.0
-margin_bottom = 452.0
+margin_bottom = 440.0
 
 [node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 margin_right = 800.0
-margin_bottom = 224.0
+margin_bottom = 242.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
 stretch_mode = 4
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 228.0
+margin_top = 246.0
 margin_right = 800.0
-margin_bottom = 452.0
+margin_bottom = 440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
 margin_right = 800.0
-margin_bottom = 224.0
+margin_bottom = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 50
-alignment = 1
+custom_constants/separation = 41
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
-margin_top = 32.0
 margin_right = 800.0
-margin_bottom = 52.0
+margin_bottom = 20.0
 flat = true
 
 [node name="Play" type="TextureRect" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer/PlayButton"]
-margin_right = 798.0
-margin_bottom = 49.0
+margin_right = 1343.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 4 )
 stretch_mode = 4
 
@@ -81,26 +83,30 @@ texture = ExtResource( 5 )
 stretch_mode = 4
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
-margin_top = 102.0
+margin_top = 61.0
 margin_right = 800.0
-margin_bottom = 122.0
+margin_bottom = 81.0
 flat = true
 
 [node name="Credits" type="TextureRect" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer/CreditsButton"]
-margin_right = 811.0
-margin_bottom = 48.0
+margin_right = 1349.0
+margin_bottom = 59.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
 stretch_mode = 4
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
-margin_top = 172.0
+margin_top = 122.0
 margin_right = 800.0
-margin_bottom = 192.0
+margin_bottom = 142.0
 flat = true
 
 [node name="Quit" type="TextureRect" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer/QuitButton"]
-margin_right = 805.0
-margin_bottom = 49.0
+margin_left = -1.0
+margin_top = 2.0
+margin_right = 1342.0
+margin_bottom = 59.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 7 )
 stretch_mode = 4
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
