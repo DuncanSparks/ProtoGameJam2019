@@ -41,6 +41,7 @@ public class Player : KinematicBody
 	// ================================================================
 
 	public bool InDarkWorld { get => inDarkWorld; }
+	public bool OnFloor { get => onFloor; }
 	public PlayerState State { get => state; }
 	public Tether CurrentTether { set => currentTether = value; }
 
@@ -211,6 +212,7 @@ public class Player : KinematicBody
 
 		Show();
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
+		onFloor = true;
 		state = PlayerState.Move;
 	}
 
@@ -226,6 +228,7 @@ public class Player : KinematicBody
 		Show();
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
 		state = PlayerState.Move;
+		onFloor = true;
 		timerResetTether.Start();
 	}
 

@@ -20,7 +20,7 @@ public class Tether : MeshInstance
 	
 	public override void _Process(float delta)
 	{
-		if (Input.IsActionJustPressed("action") && inArea && player.State == Player.PlayerState.Move)
+		if (Input.IsActionJustPressed("action") && inArea && player.State == Player.PlayerState.Move && player.OnFloor)
 		{
 			player.CurrentTether = this;
 			player.GoToDarkWorld();

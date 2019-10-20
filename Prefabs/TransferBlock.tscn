@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/TransferBlock.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/transfer block2.png" type="Texture" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="CubeMesh" id=2]
 material = SubResource( 1 )
@@ -13,8 +15,8 @@ size = Vector3( 1, 1, 1 )
 extents = Vector3( 0.471821, 0.482289, 0.614361 )
 
 [node name="TransferBlock" type="StaticBody" groups=[
-"TB",
 "Floor",
+"TB",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.640826 )
 script = ExtResource( 1 )
