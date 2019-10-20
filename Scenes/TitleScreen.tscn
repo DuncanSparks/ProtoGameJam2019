@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/new_title_bg.png" type="Texture" id=2]
-[ext_resource path="res://Images/arcaneText2.png" type="Texture" id=3]
+[ext_resource path="res://Images/arcaneText3.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/Playball-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -32,38 +32,38 @@ margin_right = 840.0
 margin_bottom = 440.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-editor/display_folded = true
 margin_right = 800.0
-margin_bottom = 442.0
+margin_bottom = 440.0
 
 [node name="Title" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 margin_right = 800.0
-margin_bottom = 242.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
+expand = true
 stretch_mode = 4
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-editor/display_folded = true
-margin_top = 246.0
+margin_top = 222.0
 margin_right = 800.0
-margin_bottom = 442.0
+margin_bottom = 440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
 margin_right = 800.0
-margin_bottom = 196.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
+margin_top = 11.0
 margin_right = 800.0
-margin_bottom = 52.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.643137, 0.72549, 0.917647, 1 )
 custom_colors/font_color = Color( 0.643137, 0.72549, 0.917647, 1 )
@@ -73,9 +73,9 @@ text = "PLAY"
 flat = true
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
-margin_top = 72.0
+margin_top = 83.0
 margin_right = 800.0
-margin_bottom = 124.0
+margin_bottom = 135.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.643137, 0.72549, 0.917647, 1 )
 custom_colors/font_color = Color( 0.643137, 0.72549, 0.917647, 1 )
@@ -85,9 +85,9 @@ text = "CREDITS"
 flat = true
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons/VBoxContainer"]
-margin_top = 144.0
+margin_top = 155.0
 margin_right = 800.0
-margin_bottom = 196.0
+margin_bottom = 207.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0.643137, 0.72549, 0.917647, 1 )
 custom_colors/font_color = Color( 0.643137, 0.72549, 0.917647, 1 )

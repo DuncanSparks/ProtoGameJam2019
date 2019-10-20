@@ -4,4 +4,5 @@
 
 [resource]
 resource_name = "Playball"
+size = 30
 font_data = ExtResource( 1 )
