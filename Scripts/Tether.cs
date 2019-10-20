@@ -20,7 +20,7 @@ public class Tether : Area
 	
 	public override void _Process(float delta)
 	{
-		if (Input.IsActionJustPressed("action") && inArea && player.State == Player.PlayerState.Move && player.OnFloor)
+		if (Input.IsActionJustPressed("return") && inArea && player.State == Player.PlayerState.Move && player.OnFloor)
 		{
 			player.CurrentTether = this;
 			player.GoToDarkWorld(0);
