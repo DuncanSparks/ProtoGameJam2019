@@ -94,7 +94,7 @@ backgroundAnimPlayerPath = NodePath("../AnimationPlayer")
 transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.07641, 0.715999, 1.95515 )
 
 [node name="DarkBall" parent="MainCamera" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.992117, -0.125314, 0, 0.125314, 0.992117, 0.0764101, 0.0307114, -1.96681 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0764101, 0.0307114, -1.96681 )
 visible = false
 
 [node name="Background" type="MeshInstance" parent="."]
