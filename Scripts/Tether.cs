@@ -23,7 +23,7 @@ public class Tether : Area
 		if (Input.IsActionJustPressed("action") && inArea && player.State == Player.PlayerState.Move && player.OnFloor)
 		{
 			player.CurrentTether = this;
-			player.GoToDarkWorld();
+			player.GoToDarkWorld(0);
 		}
 	}
 

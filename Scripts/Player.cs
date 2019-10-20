@@ -18,6 +18,7 @@ public class Player : KinematicBody
 
 	private bool canJump = false;
 	private bool onFloor = false;
+	private bool canGoBack = true;
 
 	private const float Speed = 3f;
 	private const float Gravity = 9.8f;
@@ -43,6 +44,7 @@ public class Player : KinematicBody
 
 	public bool InDarkWorld { get => inDarkWorld; }
 	public bool OnFloor { get => onFloor; }
+	public bool CanGoBack { get => canGoBack; set => canGoBack = value; }
 	public PlayerState State { get => state; set => state = value; }
 	public Tether CurrentTether { set => currentTether = value; }
 
@@ -76,12 +78,12 @@ public class Player : KinematicBody
 		if (Input.IsActionJustPressed("move_right"))
 			sprite.FlipH = false;
 
-		if (onFloor)
+		if (onFloor && state == PlayerState.Move)
 			animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
 
 		if (state == PlayerState.Move)
 		{
-			if (Input.IsActionJustPressed("return") && inDarkWorld)
+			if (Input.IsActionJustPressed("return") && inDarkWorld && canGoBack)
 				GoToLightWorld();
 
 			if (Input.IsActionJustPressed("restart_level"))
@@ -129,17 +131,10 @@ public class Player : KinematicBody
 	}
 
 
-	public void GoToDarkWorld()
+	public void GoToDarkWorld(float pos, bool special = false)
 	{
-		soundShift.Play();
-
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
-
-		var parts = (Particles)PartsAppearRef.Instance();
-		parts.Translation = Translation;
-		parts.Emitting = true;
-		GetTree().GetRoot().AddChild(parts);
 
 		var p2 = (KinematicBody)Player2Ref.Instance();
 		otherPlayer = p2;
@@ -147,13 +142,23 @@ public class Player : KinematicBody
 		GetTree().GetRoot().GetNode<Spatial>("Scene").AddChild(p2);
 
 		Hide();
-		Translation = new Vector3(t.x, t.y, 11.7f);
+		Translation = special ? new Vector3(pos, t.y, 11.7f) : new Vector3(t.x, t.y, 11.7f);
 		backgroundAnimPlayer.Play("Dark");
 
-		var ball = camera.GetNode<MeshInstance>("DarkBall");
-		ball.Show();
-		ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
+		if (!special)
+		{
+			soundShift.Play();
 
+			var parts = (Particles)PartsAppearRef.Instance();
+			parts.Translation = Translation;
+			parts.Emitting = true;
+			GetTree().GetRoot().AddChild(parts);
+
+			var ball = camera.GetNode<MeshInstance>("DarkBall");
+			ball.Show();
+			ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
+		}
+		
 		inDarkWorld = true;
 		timerSpawnPlayer2.Start();
 	}
@@ -247,7 +252,10 @@ public class Player : KinematicBody
 
 	private void _on_TimerResetTether_timeout()
 	{
-		currentTether.InArea = true;
-		ShowInteract(true);
+		if (currentTether != null)
+		{
+			currentTether.InArea = true;
+			ShowInteract(true);
+		}
 	}
 }

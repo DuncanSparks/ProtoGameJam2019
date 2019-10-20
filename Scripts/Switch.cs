@@ -28,6 +28,10 @@ public class Switch : StaticBody
 	private Timer timer;
 
 	// ================================================================
+
+	public bool CanTrigger { set => canTrigger = value; }
+
+	// ================================================================
 	
 	public override void _Ready()
 	{
@@ -50,6 +54,10 @@ public class Switch : StaticBody
 			EmitSignal(on ? nameof(pulled_on) : nameof(pulled_off));
 		
 			canTrigger = false;
+			partner.CanTrigger = false;
+			if (oneShot)
+				player.ShowInteract(false);
+				
 			timer.Start();
 		}
 	}
@@ -65,7 +73,7 @@ public class Switch : StaticBody
 
 	private void _on_AreaInteract_body_entered(Node body)
 	{
-		if (body.IsInGroup("Player"))
+		if (body.IsInGroup("Player") && (canTrigger || !oneShot))
 		{
 			player.ShowInteract(true);
 			inArea = true;
@@ -85,6 +93,10 @@ public class Switch : StaticBody
 
 	private void _on_TimerPull_timeout()
 	{
-		canTrigger = true;
+		if (!oneShot)
+		{
+			canTrigger = true;
+			partner.CanTrigger = true;
+		}
 	}
 }
