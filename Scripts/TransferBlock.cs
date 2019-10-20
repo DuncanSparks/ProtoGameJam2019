@@ -3,13 +3,18 @@ using System;
 
 public class TransferBlock : StaticBody
 {
-	private Vector3 target;
+	[Export]
 	private bool darkRealm = false;
+
+	private Vector3 target;
 
 	// ================================================================
 	
 	public override void _Ready()
 	{
+		if (darkRealm)
+			Translation += new Vector3(0, 0, 11);
+
 		target = Translation;
 	}
 
