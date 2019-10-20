@@ -4,7 +4,7 @@ using System;
 public class CreditScreen : Node
 {
     private string MAIN_MENU_PATH = "res://Scenes/TitleScreen.tscn";
-    public override void _UnhandledInput(InputEvent @event)
+    /*public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey eventKey)
         {
@@ -13,5 +13,10 @@ public class CreditScreen : Node
                 GetTree().ChangeScene(MAIN_MENU_PATH);
             }
         }
+    }*/
+
+    private void _on_BackButton_pressed()
+    {
+        GetTree().ChangeScene(MAIN_MENU_PATH);
     }
 }
