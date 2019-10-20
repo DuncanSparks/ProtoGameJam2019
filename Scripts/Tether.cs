@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Tether : MeshInstance
+public class Tether : Area
 {
 	private Player player;
 
