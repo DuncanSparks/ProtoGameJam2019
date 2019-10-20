@@ -78,9 +78,7 @@ public class Player : KinematicBody
 		if (state == PlayerState.Move)
 		{
 			if (Input.IsActionJustPressed("return") && inDarkWorld)
-			{
 				GoToLightWorld();
-			}
 
 			if (Input.IsActionJustPressed("restart_level"))
 				GetTree().ReloadCurrentScene();
@@ -225,5 +223,6 @@ public class Player : KinematicBody
 	private void _on_TimerResetTether_timeout()
 	{
 		currentTether.InArea = true;
+		ShowInteract(true);
 	}
 }
