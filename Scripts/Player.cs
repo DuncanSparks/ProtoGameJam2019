@@ -76,7 +76,7 @@ public class Player : KinematicBody
 		if (Input.IsActionJustPressed("move_right"))
 			sprite.FlipH = false;
 
-		if (onFloor)
+		if (onFloor && state == PlayerState.Move)
 			animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
 
 		if (state == PlayerState.Move)
@@ -129,17 +129,12 @@ public class Player : KinematicBody
 	}
 
 
-	public void GoToDarkWorld()
+	public void GoToDarkWorld(float pos, bool special = false)
 	{
 		soundShift.Play();
 
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
-
-		var parts = (Particles)PartsAppearRef.Instance();
-		parts.Translation = Translation;
-		parts.Emitting = true;
-		GetTree().GetRoot().AddChild(parts);
 
 		var p2 = (KinematicBody)Player2Ref.Instance();
 		otherPlayer = p2;
@@ -147,13 +142,21 @@ public class Player : KinematicBody
 		GetTree().GetRoot().GetNode<Spatial>("Scene").AddChild(p2);
 
 		Hide();
-		Translation = new Vector3(t.x, t.y, 11.7f);
+		Translation = special ? new Vector3(pos, t.y, 11.7f) : new Vector3(t.x, t.y, 11.7f);
 		backgroundAnimPlayer.Play("Dark");
 
-		var ball = camera.GetNode<MeshInstance>("DarkBall");
-		ball.Show();
-		ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
+		if (!special)
+		{
+			var parts = (Particles)PartsAppearRef.Instance();
+			parts.Translation = Translation;
+			parts.Emitting = true;
+			GetTree().GetRoot().AddChild(parts);
 
+			var ball = camera.GetNode<MeshInstance>("DarkBall");
+			ball.Show();
+			ball.GetNode<AnimationPlayer>("AnimationPlayer").Play("Anim");
+		}
+		
 		inDarkWorld = true;
 		timerSpawnPlayer2.Start();
 	}
