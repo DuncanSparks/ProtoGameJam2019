@@ -54,7 +54,6 @@ margin_bottom = 357.0
 custom_constants/separation = 80
 
 [node name="Left" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-editor/display_folded = true
 margin_right = 338.0
 margin_bottom = 212.0
 custom_constants/separation = 20
@@ -99,24 +98,23 @@ custom_colors/font_color = Color( 0.898039, 0.898039, 0.898039, 1 )
 text = "Rami Shreim - Artist"
 
 [node name="Right" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-editor/display_folded = true
 margin_left = 418.0
-margin_right = 801.0
+margin_right = 792.0
 margin_bottom = 212.0
 custom_constants/separation = 20
 
 [node name="Garrison" type="Label" parent="VBoxContainer/HBoxContainer/Right"]
-margin_right = 383.0
+margin_right = 374.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.898039, 0.898039, 0.898039, 1 )
-text = "Garrison Finley - Artist, Producer"
+text = "Garrison Finley - Artist"
 
 [node name="Chase" type="Label" parent="VBoxContainer/HBoxContainer/Right"]
 margin_top = 58.0
-margin_right = 383.0
+margin_right = 374.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -126,7 +124,7 @@ text = "Chase Taylor - Designer"
 
 [node name="Jen" type="Label" parent="VBoxContainer/HBoxContainer/Right"]
 margin_top = 116.0
-margin_right = 383.0
+margin_right = 374.0
 margin_bottom = 154.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -136,13 +134,13 @@ text = "Jennifer Siino - Writer, Producer"
 
 [node name="Jay Bernstein" type="Label" parent="VBoxContainer/HBoxContainer/Right"]
 margin_top = 174.0
-margin_right = 383.0
+margin_right = 374.0
 margin_bottom = 212.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.898039, 0.898039, 0.898039, 1 )
-text = "Jay Bernstein - Audio Designer"
+text = "Jay Bernstein - Audio"
 
 [node name="Text Credits" type="Label" parent="VBoxContainer"]
 margin_top = 377.0
