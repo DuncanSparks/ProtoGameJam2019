@@ -38,7 +38,7 @@ public class PushableBlock : KinematicBody
 	{
 		if (!inDarkWorld)
 		{
-			if (Input.IsActionJustPressed("action") && inArea)
+			if (Input.IsActionJustPressed("return") && inArea)
 			{
 				velocity.x = areaSide ? -0.5f : 0.5f;
 				moving = true;
