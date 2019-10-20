@@ -136,6 +136,8 @@ public class Player : KinematicBody
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
+		Controller.Crossfade(true);
+
 		var p2 = (KinematicBody)Player2Ref.Instance();
 		otherPlayer = p2;
 		otherPlayer.Translation = Translation;
@@ -170,6 +172,8 @@ public class Player : KinematicBody
 
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
+
+		Controller.Crossfade(false);
 
 		var parts = (Particles)PartsAppearRef.Instance();
 		parts.Translation = Translation;

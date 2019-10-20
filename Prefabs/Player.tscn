@@ -319,6 +319,7 @@ anims/Interact = SubResource( 9 )
 
 [node name="SoundShift" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -12.0
 
 [node name="TimerSpawnPlayer2" type="Timer" parent="."]
 wait_time = 1.5
