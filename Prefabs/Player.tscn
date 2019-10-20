@@ -64,6 +64,12 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0212984, 0 )
 shape = SubResource( 2 )
 
+[node name="Area2" type="Area" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape" parent="Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0536659, 0 )
+shape = SubResource( 2 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 playback_speed = 1.5
@@ -71,3 +77,5 @@ anims/Idle = SubResource( 3 )
 anims/Walk = SubResource( 4 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+[connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
+[connection signal="body_exited" from="Area2" to="." method="_on_Area2_body_exited"]

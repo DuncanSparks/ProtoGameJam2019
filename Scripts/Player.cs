@@ -42,9 +42,7 @@ public class Player : KinematicBody
 	
 		if (Input.IsActionJustPressed("debug_1"))
 		{
-			Vector3 t = Translation;
-			Translation = new Vector3(t.x, t.y + 1.5f, 11.5f);
-			backgroundAnimPlayer.Play("Dark");
+			GoToLightWorld();
 		}
 
 		if (Input.IsActionJustPressed("debug_2"))
@@ -83,6 +81,15 @@ public class Player : KinematicBody
 	}
 
 
+	private void GoToLightWorld()
+	{
+		Vector3 t = Translation;
+		Translation = new Vector3(t.x, t.y + 1.5f, 11.5f);
+		backgroundAnimPlayer.Play("Dark");
+		camera.GetNode<MeshInstance>("DarkBall").Show();
+	}
+
+
 	private void _on_Area_body_entered(Node body)
 	{
 		if (body.IsInGroup("Floor"))
@@ -92,11 +99,7 @@ public class Player : KinematicBody
 			onFloor = true;
 		}
 
-		if (body.IsInGroup("TB"))
-		{
-			var t = (TransferBlock)body;
-			t.Transfer();
-		}
+		
 	}
 
 	private void _on_Area_body_exited(Node body)
@@ -106,5 +109,21 @@ public class Player : KinematicBody
 			onFloor = false;
 			canJump = false;
 		}
+	}
+
+
+	private void _on_Area2_body_entered(Node body)
+	{
+		if (body.IsInGroup("TB"))
+		{
+			var t = (TransferBlock)body;
+			t.Transfer();
+		}
+	}
+
+
+	private void _on_Area2_body_exited(Node body)
+	{
+
 	}
 }
