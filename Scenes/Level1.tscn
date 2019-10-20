@@ -93,6 +93,7 @@ cameraPath = NodePath("../MainCamera")
 backgroundAnimPlayerPath = NodePath("../AnimationPlayer")
 
 [node name="MainCamera" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.07641, 0.715999, 1.95515 )
 
 [node name="DarkBall" parent="MainCamera" instance=ExtResource( 3 )]
@@ -136,9 +137,10 @@ anims/Background = SubResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5 )
 
 [node name="Door" type="StaticBody" parent="."]
+editor/display_folded = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Door"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door"]
@@ -150,7 +152,7 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.9396 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door3"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.302963 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.302963 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door3"]
@@ -159,10 +161,10 @@ shape = SubResource( 9 )
 
 [node name="Door2" type="StaticBody" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.34765, 2.0135, 0.544667 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.34765, 2.0135, 0.544667 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door2"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.302963 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.302963 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door2"]
@@ -170,10 +172,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93136, 1.13595, 0 )
 shape = SubResource( 9 )
 
 [node name="Door4" type="StaticBody" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.34765, 2.0135, 11.4843 )
+editor/display_folded = true
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.34765, 2.0135, 11.4843 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door4"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.236506 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.236506 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door4"]
@@ -210,3 +213,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76009, 0.730945, 0.348119 )
 
 [node name="Page" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2919, 3.24826, 0.249254 )
+[connection signal="pulled_off" from="Switch" to="SwitchTiles" method="Move" binds= [ false ]]
+[connection signal="pulled_on" from="Switch" to="SwitchTiles" method="Move" binds= [ true ]]
+[connection signal="pulled_off" from="Switch2" to="SwitchTiles" method="Move" binds= [ false ]]
+[connection signal="pulled_on" from="Switch2" to="SwitchTiles" method="Move" binds= [ true ]]
