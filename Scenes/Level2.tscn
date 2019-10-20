@@ -197,3 +197,10 @@ shape = SubResource( 9 )
 
 [node name="Page" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31814, 1.23988, 0.428197 )
+nextLevel = "res://Scenes/Level3.tscn"
+pageText = "Entry 17
+
+Rima no longer sees my vision. She believes me mad. Truly, my work terrifies some, but still others see the value of my experiments. Adventurers come in search of the arcane secrets I have discovered, but they no longer call me “Aethereus the Bold” – instead, “Aethereus the Forsaken.” They believe themselves stronger than me. They seek to usurp my position in the Observatory. Yet I am so close to a breakthrough – I must contain the threat to my research.
+
+Or perhaps… I have discovered a new subject to study.
+"
