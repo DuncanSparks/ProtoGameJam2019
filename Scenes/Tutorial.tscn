@@ -8,7 +8,7 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
-ambient_light_color = Color( 0.301961, 0.647059, 0.952941, 1 )
+ambient_light_color = Color( 0.835294, 0.92549, 0.929412, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_unshaded = true
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.301961, 0.647059, 0.952941, 1 ), Color( 0.584314, 0.0196078, 0.588235, 1 ) ]
+"values": [ Color( 0.835294, 0.92549, 0.929412, 1 ), Color( 0.584314, 0.0196078, 0.588235, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
