@@ -63,6 +63,10 @@ public class Player : KinematicBody
 		{
 			GoToLightWorld();
 		}
+		if (Input.IsActionJustPressed("restart_level"))
+		{
+			GetTree().ReloadCurrentScene();
+		}
 	}
 
 
