@@ -74,7 +74,8 @@ public class Player : KinematicBody
 		if (Input.IsActionJustPressed("move_right"))
 			sprite.FlipH = false;
 
-		animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
+		if (onFloor)
+			animPlayer.Play(inDarkWorld ? velocity.x != 0 ? "WalkDark" : "IdleDark" : velocity.x != 0 ? "Walk" : "Idle");
 
 		if (state == PlayerState.Move)
 		{
@@ -100,8 +101,10 @@ public class Player : KinematicBody
 			// Check for jump input
 			if (Input.IsActionJustPressed("move_jump") && canJump)
 			{
+				animPlayer.Play(inDarkWorld ? "JumpDark" : "Jump");
 				velocity.y = JumpForce;
 				canJump = false;
+				onFloor = false;
 			}
 
 			// If we aren't on the floor, accelerate downward (gravity)
