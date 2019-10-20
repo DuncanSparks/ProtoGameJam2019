@@ -46,7 +46,7 @@ public class PushableBlock : KinematicBody
 			}
 		}
 		else
-			Translation = partner.Translation + new Vector3(0, 0, 11);
+			Translation = partner.Translation + new Vector3(0, 0, 11.7f);
 	}
 
 
