@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Options.png-4577d4592097561f70127099d9f39c39.stex"
+path="res://.import/arcaneText.png-04b59d736e0cd24f02c1638779e03e7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Options.png"
-dest_files=[ "res://.import/Options.png-4577d4592097561f70127099d9f39c39.stex" ]
+source_file="res://Images/arcaneText.png"
+dest_files=[ "res://.import/arcaneText.png-04b59d736e0cd24f02c1638779e03e7c.stex" ]
 
 [params]
 

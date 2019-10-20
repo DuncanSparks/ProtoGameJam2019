@@ -13,8 +13,8 @@ size = Vector3( 1, 1, 1 )
 extents = Vector3( 0.471821, 0.482289, 0.614361 )
 
 [node name="TransferBlock" type="StaticBody" groups=[
-"Floor",
 "TB",
+"Floor",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.640826 )
 script = ExtResource( 1 )
