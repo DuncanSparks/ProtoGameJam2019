@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Tutorial.cs" type="Script" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://sounds/gate_open.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sprites/door.png" type="Texture" id=12]
 [ext_resource path="res://Prefabs/Page.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/runes.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/press E text.png" type="Texture" id=15]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -395,6 +397,15 @@ The latest subject tried to escape again, but no one can navigate the ever-chang
 
 But… the Darkness grows restless. It wants to escape.
 I must double my efforts."
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 2.06344, 0, 1.01298 )
+texture = ExtResource( 14 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 2.06344, 0, 12.0109 )
+texture = ExtResource( 15 )
+
 [connection signal="timeout" from="TimerTut1" to="." method="_on_TimerTut1_timeout"]
 [connection signal="pulled_off" from="Switch" to="SwitchTiles" method="Move" binds= [ false ]]
 [connection signal="pulled_on" from="Switch" to="SwitchTiles" method="Move" binds= [ true ]]
