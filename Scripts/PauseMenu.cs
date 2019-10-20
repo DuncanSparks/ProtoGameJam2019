@@ -3,6 +3,8 @@ using System;
 
 public class PauseMenu : Control
 {
+	private string MainMenuPath = "res://Scenes/TitleScreen.tscn";
+
     /*private bool isPaused = false;
     private string MAIN_MENU_PATH = "res://Scenes/TitleScreen.tscn";
     public override void _UnhandledInput(InputEvent @event)
@@ -24,9 +26,10 @@ public class PauseMenu : Control
                 GetTree().Paused = isPaused;
             }
         }*/
-
-    private string MAIN_MENU_PATH = "res://Scenes/TitleScreen.tscn";
+	/* 
+   private string MAIN_MENU_PATH = "res://Scenes/TitleScreen.tscn";
     private bool isPaused = false;
+
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey eventKey)
@@ -42,11 +45,11 @@ public class PauseMenu : Control
             }
     }
 
-    }
+    }*/
 
     private void _on_MainMenuButton_pressed()
     {
-        GetTree().ChangeScene(MAIN_MENU_PATH);
+        GetTree().ChangeScene(MainMenuPath);
     }
 
     private void _on_QuitButton_pressed()
@@ -56,8 +59,7 @@ public class PauseMenu : Control
 
     private void _on_Button_pressed()
     {
-        GetNode<TextureRect>("TextureRect").Hide();
-        isPaused = false;
-        GetTree().Paused = isPaused;
+		Controller.Paused = false;
+    	QueueFree();
     }
 }

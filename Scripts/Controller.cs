@@ -11,12 +11,28 @@ public class Controller : Node
 		Singleton = this;
 	}
 
+	private bool paused = false;
+
+	private PackedScene PauseMenuRef = GD.Load<PackedScene>("res://Scenes/PauseMenu.tscn");
+
 	// ================================================================
 	
+	public static bool Paused { get => Controller.Singleton.paused; set => Controller.Singleton.paused = value; }
+
+	// ================================================================
+
 	public override void _Process(float delta)
 	{
 		if (Input.IsActionJustPressed("sys_fullscreen"))
 			OS.SetWindowFullscreen(!OS.IsWindowFullscreen());
+
+		if (Input.IsActionJustPressed("sys_pause") && !paused)
+		{
+			var pm = (PauseMenu)PauseMenuRef.Instance();
+			GetTree().GetRoot().AddChild(pm);
+
+			paused = true;
+		}
 	}
 
 	// ================================================================
