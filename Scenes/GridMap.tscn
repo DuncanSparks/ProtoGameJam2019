@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Sprites/Tilesets/StoneFill_UV.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/Dark_Stonefill_UV.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Tilesets/StoneTop_UV.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Tilesets/Test.png" type="Texture" id=13]
 
 [sub_resource type="SpatialMaterial" id=28]
 albedo_texture = ExtResource( 1 )
@@ -98,6 +99,13 @@ albedo_texture = ExtResource( 12 )
 
 [sub_resource type="CubeMesh" id=25]
 material = SubResource( 24 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=49]
+albedo_texture = ExtResource( 13 )
+
+[sub_resource type="CubeMesh" id=50]
+material = SubResource( 49 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Spatial" type="Spatial"]
@@ -231,4 +239,14 @@ material/0 = null
 [node name="StaticBody" type="StaticBody" parent="Right"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Right/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Invisible" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58463, 0, 0 )
+mesh = SubResource( 50 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Invisible"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Invisible/StaticBody"]
 shape = SubResource( 3 )
