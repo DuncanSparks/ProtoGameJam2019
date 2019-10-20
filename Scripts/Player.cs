@@ -133,8 +133,6 @@ public class Player : KinematicBody
 
 	public void GoToDarkWorld(float pos, bool special = false)
 	{
-		soundShift.Play();
-
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
@@ -149,6 +147,8 @@ public class Player : KinematicBody
 
 		if (!special)
 		{
+			soundShift.Play();
+
 			var parts = (Particles)PartsAppearRef.Instance();
 			parts.Translation = Translation;
 			parts.Emitting = true;
@@ -252,7 +252,10 @@ public class Player : KinematicBody
 
 	private void _on_TimerResetTether_timeout()
 	{
-		currentTether.InArea = true;
-		ShowInteract(true);
+		if (currentTether != null)
+		{
+			currentTether.InArea = true;
+			ShowInteract(true);
+		}
 	}
 }
