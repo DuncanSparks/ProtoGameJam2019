@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/mcL_idle.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/mcD_jump.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/mcL_walk.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/mcD_walk.png" type="Texture" id=8]
+[ext_resource path="res://sounds/transfer.ogg" type="AudioStream" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.1805, 0.370368, 0.0173598 )
@@ -96,7 +97,7 @@ tracks/2/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Jump"
 length = 1.6
 tracks/0/type = "value"
@@ -136,7 +137,7 @@ tracks/2/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "JumpDark"
 length = 1.6
 tracks/0/type = "value"
@@ -176,7 +177,7 @@ tracks/2/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -216,8 +217,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "WalkDark"
+[sub_resource type="Animation" id=8]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -257,8 +257,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Interact"
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Interact:rotation_degrees")
@@ -309,14 +308,17 @@ autoplay = "Idle"
 playback_speed = 1.5
 anims/Idle = SubResource( 3 )
 anims/IdleDark = SubResource( 4 )
-anims/Jump = SubResource( 8 )
-anims/JumpDark = SubResource( 9 )
-anims/Walk = SubResource( 5 )
-anims/WalkDark = SubResource( 6 )
+anims/Jump = SubResource( 5 )
+anims/JumpDark = SubResource( 6 )
+anims/Walk = SubResource( 7 )
+anims/WalkDark = SubResource( 8 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Interact"
-anims/Interact = SubResource( 7 )
+anims/Interact = SubResource( 9 )
+
+[node name="SoundShift" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 
 [node name="TimerSpawnPlayer2" type="Timer" parent="."]
 wait_time = 1.5

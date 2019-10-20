@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Switch.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/lever.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/pushBlock.png" type="Texture" id=3]
+[ext_resource path="res://sounds/lever_new.ogg" type="AudioStream" id=4]
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 3, 1, 1 )
 
-[sub_resource type="CubeMesh" id=6]
-material = SubResource( 7 )
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
 size = Vector3( 0.4, 0.2, 0.2 )
 
 [sub_resource type="BoxShape" id=3]
@@ -54,7 +55,7 @@ shaded = true
 texture = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 6 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="AreaInteract" type="Area" parent="."]
@@ -65,5 +66,13 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Pull = SubResource( 4 )
 anims/Push = SubResource( 5 )
+
+[node name="SoundPull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TimerPull" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
 [connection signal="body_entered" from="AreaInteract" to="." method="_on_AreaInteract_body_entered"]
 [connection signal="body_exited" from="AreaInteract" to="." method="_on_AreaInteract_body_exited"]
+[connection signal="timeout" from="TimerPull" to="." method="_on_TimerPull_timeout"]

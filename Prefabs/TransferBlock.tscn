@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/TransferBlock.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/transfer block2.png" type="Texture" id=2]
+[ext_resource path="res://sounds/shift.ogg" type="AudioStream" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -30,3 +31,6 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
+
+[node name="SoundTransfer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

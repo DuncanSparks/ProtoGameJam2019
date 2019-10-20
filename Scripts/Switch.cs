@@ -24,6 +24,8 @@ public class Switch : StaticBody
 
 	private Player player;
 	private AnimationPlayer animationPlayer;
+	private AudioStreamPlayer soundPull;
+	private Timer timer;
 
 	// ================================================================
 	
@@ -31,6 +33,9 @@ public class Switch : StaticBody
 	{
 		partner = GetNode<Switch>(partnerSwitch);
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		soundPull = GetNode<AudioStreamPlayer>("SoundPull");
+		timer = GetNode<Timer>("TimerPull");
+
 		player = GetTree().GetRoot().GetNode<Spatial>("Scene").GetNode<Player>("Player");
 	}
 
@@ -39,9 +44,13 @@ public class Switch : StaticBody
 	{
 		if (Input.IsActionJustPressed("action") && inArea && canTrigger)
 		{
+			soundPull.Play();
 			Trigger();
 			partner.Trigger();
 			EmitSignal(on ? nameof(pulled_on) : nameof(pulled_off));
+		
+			canTrigger = false;
+			timer.Start();
 		}
 	}
 
@@ -71,5 +80,11 @@ public class Switch : StaticBody
 			player.ShowInteract(false);
 			inArea = false;
 		}
+	}
+
+
+	private void _on_TimerPull_timeout()
+	{
+		canTrigger = true;
 	}
 }

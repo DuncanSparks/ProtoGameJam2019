@@ -8,10 +8,14 @@ public class TransferBlock : StaticBody
 
 	private Vector3 target;
 
+	private AudioStreamPlayer soundTransfer;
+
 	// ================================================================
 	
 	public override void _Ready()
 	{
+		soundTransfer = GetNode<AudioStreamPlayer>("SoundTransfer");
+
 		if (darkRealm)
 			Translation += new Vector3(0, 0, 11);
 
@@ -28,6 +32,7 @@ public class TransferBlock : StaticBody
 
 	public void Transfer()
 	{
+		soundTransfer.Play();
 		target.z += darkRealm ? -11 : 11;
 		darkRealm ^= true;
 	}

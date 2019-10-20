@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lever_new.ogg-a004ca1d1f1e4930ba071adaad6281f8.oggstr"
+
+[deps]
+
+source_file="res://sounds/lever_new.ogg"
+dest_files=[ "res://.import/lever_new.ogg-a004ca1d1f1e4930ba071adaad6281f8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

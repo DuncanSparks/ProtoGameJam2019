@@ -28,6 +28,7 @@ public class Player : KinematicBody
 	private Camera camera;
 	private AnimationPlayer animPlayer;
 	private AnimationPlayer backgroundAnimPlayer;
+	private AudioStreamPlayer soundShift;
 	private Timer timerSpawnPlayer2;
 	private Timer timerKillPlayer2;
 	private Timer timerResetTether;
@@ -54,6 +55,7 @@ public class Player : KinematicBody
 		camera = GetNode<Camera>(cameraPath);
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		backgroundAnimPlayer = GetNode<AnimationPlayer>(backgroundAnimPlayerPath);
+		soundShift = GetNode<AudioStreamPlayer>("SoundShift");
 		timerSpawnPlayer2 = GetNode<Timer>("TimerSpawnPlayer2");
 		timerKillPlayer2 = GetNode<Timer>("TimerKillPlayer2");
 		timerResetTether = GetNode<Timer>("TimerResetTether");
@@ -83,7 +85,10 @@ public class Player : KinematicBody
 				GoToLightWorld();
 
 			if (Input.IsActionJustPressed("restart_level"))
+			{
+				GetTree().GetRoot().GetNode<Spatial>("Scene").GetNode<WorldEnvironment>("WorldEnvironment").Environment.AmbientLightColor = new Color("#4da5f3");
 				GetTree().ReloadCurrentScene();
+			}
 		}
 	}
 
@@ -126,6 +131,8 @@ public class Player : KinematicBody
 
 	public void GoToDarkWorld()
 	{
+		soundShift.Play();
+
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
@@ -154,6 +161,8 @@ public class Player : KinematicBody
 
 	public void GoToLightWorld()
 	{
+		soundShift.Play();
+
 		state = PlayerState.NoInput;
 		Vector3 t = Translation;
 
