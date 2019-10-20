@@ -14,6 +14,7 @@ public class Controller : Node
 	private bool paused = false;
 
 	private AnimationPlayer animPlayer;
+	private AnimationPlayer animPlayer2;
 
 	private PackedScene PauseMenuRef = GD.Load<PackedScene>("res://Scenes/PauseMenu.tscn");
 
@@ -26,6 +27,9 @@ public class Controller : Node
 	public override void _Ready()
 	{
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		animPlayer2 = GetNode<AnimationPlayer>("AnimationPlayer2");
+
+		Fade(false);
 	}
 
 
@@ -49,6 +53,12 @@ public class Controller : Node
 	public static float LerpDelta(float from, float to, float weight, float delta)
 	{
 		return Mathf.Lerp(from, to, 1f - Mathf.Pow(weight, delta));
+	}
+
+
+	public static void Fade(bool o)
+	{
+		Controller.Singleton.animPlayer2.Play(o ? "Fadeout" : "Fadein");
 	}
 
 
