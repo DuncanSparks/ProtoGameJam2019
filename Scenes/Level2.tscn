@@ -155,7 +155,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75114, -1.35332, 0 )
 editor/display_folded = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Door"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door"]
@@ -167,7 +167,7 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.0366 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door3"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door3"]
@@ -176,10 +176,10 @@ shape = SubResource( 9 )
 
 [node name="Door2" type="StaticBody" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.86564, 0, 0.585235 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 4.86564, 0, 0.585235 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door2"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door2"]
@@ -188,10 +188,10 @@ shape = SubResource( 9 )
 
 [node name="Door4" type="StaticBody" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.86564, 0, 11.6218 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 4.86564, 0, 11.6218 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door4"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door4"]
@@ -201,11 +201,15 @@ shape = SubResource( 9 )
 [node name="Page" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31814, 1.23988, 0.428197 )
 nextLevel = "res://Scenes/Level3.tscn"
-pageText = "Entry 17
+pageText = "My dearest friend,
 
-Rima no longer sees my vision. She believes me mad. Truly, my work terrifies some, but still others see the value of my experiments. Adventurers come in search of the arcane secrets I have discovered, but they no longer call me “Aethereus the Bold” – instead, “Aethereus the Forsaken.” They believe themselves stronger than me. They seek to usurp my position in the Observatory. Yet I am so close to a breakthrough – I must eliminate the threat to my research.
+You say we were successful in transporting matter, yet how can we consider ourselves proud when the tower you swore to protect is disappearing before our very eyes?
 
-Or perhaps… I have discovered a new subject to study.
+After seeing the outcome of our last experiments… I can no longer aid in these endeavors. We are harnessing power that we are not meant to wield. I will not stand by while you destroy the Observatory – and yourself.
+
+Please, Aethereus. I admire your ambition, yet you have already uncovered plenty from the ancient texts. Do not let the Darkness corrupt your vision.
+
+~Rima
 "
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
