@@ -142,7 +142,7 @@ data = {
 __meta__ = {
 "_edit_lock_": true,
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, -1, -1 )
+"_editor_floor_": Vector3( 0, -1, 1 )
 }
 
 [node name="Background2" type="MeshInstance" parent="."]
@@ -368,10 +368,10 @@ stream = ExtResource( 11 )
 
 [node name="Door" type="StaticBody" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.44016, 0, 0.523033 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.44016, 0, 0.523033 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door"]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 12 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door"]
@@ -380,10 +380,10 @@ shape = SubResource( 12 )
 
 [node name="Door2" type="StaticBody" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.44016, 0, 11.5015 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.44016, 0, 11.5015 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Door2"]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.81323, 1.2092, 0.264838 )
 texture = ExtResource( 12 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door2"]
