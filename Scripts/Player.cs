@@ -245,6 +245,7 @@ public class Player : KinematicBody
 		camera.GetNode<MeshInstance>("DarkBall").Hide();
 		onFloor = true;
 		state = PlayerState.Move;
+		GetNode<Timer>("TimerUpdateFloor").Start();
 	}
 
 
@@ -261,6 +262,7 @@ public class Player : KinematicBody
 		state = PlayerState.Move;
 		onFloor = true;
 		timerResetTether.Start();
+		GetNode<Timer>("TimerUpdateFloor").Start();
 	}
 
 
@@ -271,5 +273,11 @@ public class Player : KinematicBody
 			currentTether.InArea = true;
 			ShowInteract(true);
 		}
+	}
+
+
+	private void _on_TimerUpdateFloor_timeout()
+	{
+		canJump = true;
 	}
 }
