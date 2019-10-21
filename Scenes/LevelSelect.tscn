@@ -35,11 +35,11 @@ margin_right = -80.0
 margin_bottom = -40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 863.0
+margin_right = 800.0
 margin_bottom = 460.0
 
 [node name="Level Select" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_right = 863.0
+margin_right = 800.0
 margin_bottom = 125.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.388235, 0.607843, 1, 1 )
@@ -50,14 +50,14 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 129.0
-margin_right = 863.0
+margin_right = 800.0
 margin_bottom = 344.0
 custom_constants/separation = 200
 alignment = 1
 
 [node name="LeftButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 175.0
-margin_right = 329.0
+margin_left = 144.0
+margin_right = 298.0
 margin_bottom = 215.0
 alignment = 1
 
@@ -118,15 +118,15 @@ margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="RightButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 529.0
-margin_right = 687.0
+margin_left = 498.0
+margin_right = 656.0
 margin_bottom = 215.0
 alignment = 1
 
 [node name="Level4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RightButtons"]
 editor/display_folded = true
 margin_right = 158.0
-margin_bottom = 105.0
+margin_bottom = 69.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -143,9 +143,9 @@ margin_bottom = 14.0
 
 [node name="Level5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RightButtons"]
 editor/display_folded = true
-margin_top = 109.0
+margin_top = 73.0
 margin_right = 158.0
-margin_bottom = 215.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -162,10 +162,9 @@ margin_bottom = 14.0
 
 [node name="Level6" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RightButtons"]
 editor/display_folded = true
-visible = false
-margin_top = 219.0
+margin_top = 146.0
 margin_right = 158.0
-margin_bottom = 288.0
+margin_bottom = 215.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -236,4 +235,5 @@ texture = ExtResource( 4 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LeftButtons/Level3" to="." method="_on_Level3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RightButtons/Level4" to="." method="_on_Level4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RightButtons/Level5" to="." method="_on_Level5_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/RightButtons/Level6" to="." method="_on_Level6_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
