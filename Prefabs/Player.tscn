@@ -332,9 +332,14 @@ one_shot = true
 [node name="TimerResetTether" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="TimerUpdateFloor" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
 [connection signal="timeout" from="TimerSpawnPlayer2" to="." method="_on_TimerSpawnPlayer2_timeout"]
 [connection signal="timeout" from="TimerKillPlayer2" to="." method="_on_TimerKillPlayer2_timeout"]
 [connection signal="timeout" from="TimerResetTether" to="." method="_on_TimerResetTether_timeout"]
+[connection signal="timeout" from="TimerUpdateFloor" to="." method="_on_TimerUpdateFloor_timeout"]
