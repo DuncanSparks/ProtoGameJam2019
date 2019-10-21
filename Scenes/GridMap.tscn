@@ -1,57 +1,67 @@
-[gd_scene load_steps=158 format=2]
+[gd_scene load_steps=188 format=2]
 
 [ext_resource path="res://Sprites/Tilesets/Test.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/Dark_Stonefill_UV.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_BL_UV.xcfL_UV.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Tilesets/Dark_StoneColumn_TopCap_UV.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_BR_UV.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneColumn_UV.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneBottom_UV.xcfL_UV.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneColumn_BottomCap_UV.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_TL_UV.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_TR_UV.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Tilesets/Dark_Stonetop_UV.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Tilesets/Dark_Stonewall_L_UV.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Tilesets/Dark_Stonewall_R_UV.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonefill_UV.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneBottom_UV.xcfL_UV.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Tilesets/FakeNEW_Dark_StoneCorner_TL_UV.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneCorner_BR_UV.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Tilesets/Fake_Dark_StoneCorner_TR_UV.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneCorner_BL_UV.xcfL_UV.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonetop_UV.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_L_UV.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_R_UV.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/transfer block.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_UV.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_Emissive.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_UV.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_Emissive.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Tilesets/StoneFill_UV.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneBottom_UV.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCorner_TL_UV.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_BottomCap_UV.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerBR_UV.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Tilesets/Light_HorizStoneColumn_UV.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Tilesets/StoneCorner_L_UV.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BR_UV.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerBL_UV.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Tilesets/StoneCorner_R_UV.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BL_UV.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_TopCap_UV.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerTR_UV.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Tilesets/StoneTop_UV.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneFill_UV.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneBottom_UV.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_L_UV.png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BR_UV.png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_R_UV.png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BL_UV.png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Tilesets/Fake_StoneTop_UV.png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_L_UV.png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_R_UV.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneInnerCorner_TR_UV.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_BR_UV.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneColumn_UV.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneInnerCorner_BL_UV.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneBottom_UV.xcfL_UV.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneInnerCorner_TL_UV.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneColumn_BottomCap_UV.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneInnerCorner_BR_UV.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Tilesets/Dark_HorizStoneColumn_UV.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Tilesets/Dark_HorizStoneColumn_LCAP_UV.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Tilesets/Dark_HorizStoneColumn_RCAP_UV.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/invisible_block.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_TL_UV.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Tilesets/Dark_StoneCorner_TR_UV.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Tilesets/Dark_Stonetop_UV.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Tilesets/Dark_Stonewall_L_UV.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Tilesets/Dark_Stonewall_R_UV.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonefill_UV.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneBottom_UV.xcfL_UV.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Tilesets/FakeNEW_Dark_StoneCorner_TL_UV.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneCorner_BR_UV.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Tilesets/Fake_Dark_StoneCorner_TR_UV.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Dark_StoneCorner_BL_UV.xcfL_UV.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonetop_UV.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_L_UV.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Tilesets/Fake_Dark_Stonewall_R_UV.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/transfer block.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_UV.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_Emissive.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_UV.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumnTop_Emissive.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Tilesets/StoneFill_UV.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneBottom_UV.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCorner_TL_UV.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_BottomCap_UV.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerBR_UV.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Tilesets/Light_HorizStoneColumn_UV.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Tilesets/Light_HorizStoneColumn_LCAP_UV.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Tilesets/Light_HorizStoneColumn_RCAP_UV.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Tilesets/StoneCorner_L_UV.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BR_UV.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerBL_UV.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Tilesets/StoneCorner_R_UV.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneCorner_BL_UV.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneColumn_TopCap_UV.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Tilesets/Light_StoneInnerCornerTR_UV.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Tilesets/StoneTop_UV.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Tilesets/Stonewall_L_UV.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Tilesets/Stonewall_R_UV.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneFill_UV.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneBottom_UV.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_L_UV.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BR_UV.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneCorner_R_UV.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Tilesets/FAKENEW_Light_StoneCorner_BL_UV.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Tilesets/Fake_StoneTop_UV.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_L_UV.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Tilesets/Fake_Stonewall_R_UV.png" type="Texture" id=62]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -211,27 +221,21 @@ material = SubResource( 44 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=46]
-albedo_texture = ExtResource( 6 )
+albedo_texture = ExtResource( 23 )
 
 [sub_resource type="CubeMesh" id=47]
 material = SubResource( 46 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=48]
-albedo_texture = ExtResource( 23 )
+albedo_texture = ExtResource( 24 )
 
 [sub_resource type="CubeMesh" id=49]
 material = SubResource( 48 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=50]
-albedo_texture = ExtResource( 24 )
-emission_enabled = true
-emission = Color( 0.772549, 0, 0.8, 1 )
-emission_energy = 1.0
-emission_operator = 1
-emission_on_uv2 = false
-emission_texture = ExtResource( 25 )
+albedo_texture = ExtResource( 25 )
 
 [sub_resource type="CubeMesh" id=51]
 material = SubResource( 50 )
@@ -239,145 +243,151 @@ size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=52]
 albedo_texture = ExtResource( 26 )
-emission_enabled = true
-emission = Color( 0.772549, 0, 0.8, 1 )
-emission_energy = 1.0
-emission_operator = 1
-emission_on_uv2 = false
-emission_texture = ExtResource( 27 )
 
 [sub_resource type="CubeMesh" id=53]
 material = SubResource( 52 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=54]
-albedo_texture = ExtResource( 28 )
+albedo_texture = ExtResource( 27 )
 
 [sub_resource type="CubeMesh" id=55]
 material = SubResource( 54 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=56]
-albedo_texture = ExtResource( 29 )
+albedo_texture = ExtResource( 28 )
 
 [sub_resource type="CubeMesh" id=57]
 material = SubResource( 56 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=58]
-albedo_texture = ExtResource( 30 )
+albedo_texture = ExtResource( 29 )
 
 [sub_resource type="CubeMesh" id=59]
 material = SubResource( 58 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=60]
-albedo_texture = ExtResource( 31 )
+albedo_texture = ExtResource( 30 )
 
 [sub_resource type="CubeMesh" id=61]
 material = SubResource( 60 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=62]
-albedo_texture = ExtResource( 32 )
+albedo_texture = ExtResource( 7 )
 
 [sub_resource type="CubeMesh" id=63]
 material = SubResource( 62 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=64]
-albedo_texture = ExtResource( 33 )
+albedo_texture = ExtResource( 31 )
 
 [sub_resource type="CubeMesh" id=65]
 material = SubResource( 64 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=66]
-albedo_texture = ExtResource( 34 )
+albedo_texture = ExtResource( 32 )
+emission_enabled = true
+emission = Color( 0.772549, 0, 0.8, 1 )
+emission_energy = 1.0
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 33 )
 
 [sub_resource type="CubeMesh" id=67]
 material = SubResource( 66 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=68]
-albedo_texture = ExtResource( 35 )
+albedo_texture = ExtResource( 34 )
+emission_enabled = true
+emission = Color( 0.772549, 0, 0.8, 1 )
+emission_energy = 1.0
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 35 )
 
 [sub_resource type="CubeMesh" id=69]
 material = SubResource( 68 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=70]
-albedo_texture = ExtResource( 24 )
+albedo_texture = ExtResource( 36 )
 
 [sub_resource type="CubeMesh" id=71]
 material = SubResource( 70 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=72]
-albedo_texture = ExtResource( 36 )
+albedo_texture = ExtResource( 37 )
 
 [sub_resource type="CubeMesh" id=73]
 material = SubResource( 72 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=74]
-albedo_texture = ExtResource( 37 )
+albedo_texture = ExtResource( 38 )
 
 [sub_resource type="CubeMesh" id=75]
 material = SubResource( 74 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=76]
-albedo_texture = ExtResource( 38 )
+albedo_texture = ExtResource( 39 )
 
 [sub_resource type="CubeMesh" id=77]
 material = SubResource( 76 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=78]
-albedo_texture = ExtResource( 39 )
+albedo_texture = ExtResource( 40 )
 
 [sub_resource type="CubeMesh" id=79]
 material = SubResource( 78 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=80]
-albedo_texture = ExtResource( 40 )
+albedo_texture = ExtResource( 41 )
 
 [sub_resource type="CubeMesh" id=81]
 material = SubResource( 80 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=82]
-albedo_texture = ExtResource( 41 )
+albedo_texture = ExtResource( 42 )
 
 [sub_resource type="CubeMesh" id=83]
 material = SubResource( 82 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=84]
-albedo_texture = ExtResource( 42 )
+albedo_texture = ExtResource( 43 )
 
 [sub_resource type="CubeMesh" id=85]
 material = SubResource( 84 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=86]
-albedo_texture = ExtResource( 43 )
+albedo_texture = ExtResource( 44 )
 
 [sub_resource type="CubeMesh" id=87]
 material = SubResource( 86 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=88]
-albedo_texture = ExtResource( 44 )
+albedo_texture = ExtResource( 45 )
 
 [sub_resource type="CubeMesh" id=89]
 material = SubResource( 88 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
 [sub_resource type="SpatialMaterial" id=90]
-albedo_texture = ExtResource( 45 )
+albedo_texture = ExtResource( 32 )
 
 [sub_resource type="CubeMesh" id=91]
 material = SubResource( 90 )
@@ -432,6 +442,76 @@ albedo_texture = ExtResource( 52 )
 material = SubResource( 104 )
 size = Vector3( 0.5, 0.5, 0.5 )
 
+[sub_resource type="SpatialMaterial" id=106]
+albedo_texture = ExtResource( 53 )
+
+[sub_resource type="CubeMesh" id=107]
+material = SubResource( 106 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=108]
+albedo_texture = ExtResource( 54 )
+
+[sub_resource type="CubeMesh" id=109]
+material = SubResource( 108 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=110]
+albedo_texture = ExtResource( 55 )
+
+[sub_resource type="CubeMesh" id=111]
+material = SubResource( 110 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=112]
+albedo_texture = ExtResource( 56 )
+
+[sub_resource type="CubeMesh" id=113]
+material = SubResource( 112 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=114]
+albedo_texture = ExtResource( 57 )
+
+[sub_resource type="CubeMesh" id=115]
+material = SubResource( 114 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=116]
+albedo_texture = ExtResource( 58 )
+
+[sub_resource type="CubeMesh" id=117]
+material = SubResource( 116 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=118]
+albedo_texture = ExtResource( 59 )
+
+[sub_resource type="CubeMesh" id=119]
+material = SubResource( 118 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=120]
+albedo_texture = ExtResource( 60 )
+
+[sub_resource type="CubeMesh" id=121]
+material = SubResource( 120 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=122]
+albedo_texture = ExtResource( 61 )
+
+[sub_resource type="CubeMesh" id=123]
+material = SubResource( 122 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=124]
+albedo_texture = ExtResource( 62 )
+
+[sub_resource type="CubeMesh" id=125]
+material = SubResource( 124 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="Invisible" type="MeshInstance" parent="."]
@@ -458,7 +538,7 @@ shape = SubResource( 3 )
 
 [node name="DarkBLCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.795429, 0.815486, -3.71933e-005 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.795429, 0.815486, -3.71933e-05 )
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -469,7 +549,7 @@ shape = SubResource( 3 )
 
 [node name="DarkTopColumn" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07089, 0.815486, -3.71933e-005 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07089, 0.815486, -3.71933e-05 )
 mesh = SubResource( 9 )
 material/0 = null
 
@@ -478,21 +558,21 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="DarkTopColumn/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="DarkTopColumn2" type="MeshInstance" parent="."]
+[node name="Dark Inner BL" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14789, 0.815486, -3.71933e-005 )
-mesh = SubResource( 9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14789, 0.815486, -3.71933e-05 )
+mesh = SubResource( 11 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="DarkTopColumn2"]
+[node name="StaticBody" type="StaticBody" parent="Dark Inner BL"]
 
-[node name="CollisionShape" type="CollisionShape" parent="DarkTopColumn2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Dark Inner BL/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="DarkBRCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55657, 0.815486, -3.71933e-005 )
-mesh = SubResource( 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55657, 0.815486, -3.71933e-05 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkBRCorner"]
@@ -502,8 +582,8 @@ shape = SubResource( 3 )
 
 [node name="DarkColumn" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83203, 0.815486, -3.71933e-005 )
-mesh = SubResource( 13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83203, 0.815486, -3.71933e-05 )
+mesh = SubResource( 15 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkColumn"]
@@ -511,21 +591,21 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="DarkColumn/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="DarkColumn2" type="MeshInstance" parent="."]
+[node name="Dark Inner TR" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.90903, 0.815486, -3.71933e-005 )
-mesh = SubResource( 13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.90903, 0.815486, -3.71933e-05 )
+mesh = SubResource( 17 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="DarkColumn2"]
+[node name="StaticBody" type="StaticBody" parent="Dark Inner TR"]
 
-[node name="CollisionShape" type="CollisionShape" parent="DarkColumn2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Dark Inner TR/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="DarkBottom" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31698, 0.815486, -3.71933e-005 )
-mesh = SubResource( 15 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31698, 0.815486, -3.71933e-05 )
+mesh = SubResource( 19 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkBottom"]
@@ -533,21 +613,21 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="DarkBottom/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="DarkBottom2" type="MeshInstance" parent="."]
+[node name="Dark Inner BR" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39398, 0.815486, -3.71933e-005 )
-mesh = SubResource( 15 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39398, 0.815486, -3.71933e-05 )
+mesh = SubResource( 21 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="DarkBottom2"]
+[node name="StaticBody" type="StaticBody" parent="Dark Inner BR"]
 
-[node name="CollisionShape" type="CollisionShape" parent="DarkBottom2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Dark Inner BR/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="DarkBottomColumn" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59244, 0.815486, -3.71933e-005 )
-mesh = SubResource( 17 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59244, 0.815486, -3.71933e-05 )
+mesh = SubResource( 23 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkBottomColumn"]
@@ -555,21 +635,65 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="DarkBottomColumn/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="DarkBottomColumn2" type="MeshInstance" parent="."]
+[node name="Dark Inner TL" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66944, 0.815486, -3.71933e-005 )
-mesh = SubResource( 17 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66944, 0.815486, -3.71933e-05 )
+mesh = SubResource( 25 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="DarkBottomColumn2"]
+[node name="StaticBody" type="StaticBody" parent="Dark Inner TL"]
 
-[node name="CollisionShape" type="CollisionShape" parent="DarkBottomColumn2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Dark Inner TL/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Dark Horizontal Column" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57656, 0.815486, -3.71933e-05 )
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Dark Horizontal Column"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Dark Horizontal Column/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Dark Horizontal Column L" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.46507, 0.815486, -3.71933e-05 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Dark Horizontal Column L"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Dark Horizontal Column L/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Dark Horizontal Column R" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2606, 0.815486, -3.71933e-05 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Dark Horizontal Column R"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Dark Horizontal Column R/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Invisiblock" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0771, 0.815486, -3.71933e-05 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Invisiblock"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Invisiblock/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="DarkTLCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67014, 0.815486, 0 )
-mesh = SubResource( 19 )
+mesh = SubResource( 35 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkTLCorner"]
@@ -580,7 +704,7 @@ shape = SubResource( 3 )
 [node name="DarkTRCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36119, 0.815486, 0 )
-mesh = SubResource( 21 )
+mesh = SubResource( 37 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkTRCorner"]
@@ -591,7 +715,7 @@ shape = SubResource( 3 )
 [node name="DarkTop" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11793, 0.815486, 0 )
-mesh = SubResource( 23 )
+mesh = SubResource( 39 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkTop"]
@@ -602,7 +726,7 @@ shape = SubResource( 3 )
 [node name="DarkLeft" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88048, 0.815486, 0 )
-mesh = SubResource( 25 )
+mesh = SubResource( 41 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkLeft"]
@@ -613,7 +737,7 @@ shape = SubResource( 3 )
 [node name="DarkRight" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57181, 0.815486, 0 )
-mesh = SubResource( 27 )
+mesh = SubResource( 43 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkRight"]
@@ -624,7 +748,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkFill" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64679, 0 )
-mesh = SubResource( 29 )
+mesh = SubResource( 45 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkFill"]
@@ -635,7 +759,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkBottom" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05108, 1.64679, 0 )
-mesh = SubResource( 31 )
+mesh = SubResource( 47 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkBottom"]
@@ -646,7 +770,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkTLCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67014, 1.64679, 0 )
-mesh = SubResource( 33 )
+mesh = SubResource( 49 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkTLCorner"]
@@ -657,7 +781,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkBRCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38094, 1.64679, 0 )
-mesh = SubResource( 35 )
+mesh = SubResource( 51 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkBRCorner"]
@@ -668,7 +792,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkTRCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36119, 1.64679, 0 )
-mesh = SubResource( 37 )
+mesh = SubResource( 53 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkTRCorner"]
@@ -679,7 +803,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkBLCorner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.689889, 1.64679, 0 )
-mesh = SubResource( 39 )
+mesh = SubResource( 55 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkBLCorner"]
@@ -690,7 +814,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkTop" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11793, 1.64679, 0 )
-mesh = SubResource( 41 )
+mesh = SubResource( 57 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkTop"]
@@ -701,7 +825,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkLeft" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88048, 1.64679, 0 )
-mesh = SubResource( 43 )
+mesh = SubResource( 59 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkLeft"]
@@ -712,7 +836,7 @@ shape = SubResource( 3 )
 [node name="Fake DarkRight" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57181, 1.64679, 0 )
-mesh = SubResource( 45 )
+mesh = SubResource( 61 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake DarkRight"]
@@ -723,7 +847,7 @@ shape = SubResource( 3 )
 [node name="DarkCrack" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57258, 0.8068, 0 )
-mesh = SubResource( 47 )
+mesh = SubResource( 63 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="DarkCrack"]
@@ -734,7 +858,7 @@ shape = SubResource( 3 )
 [node name="SwitchTile" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57258, 1.72652, 0 )
-mesh = SubResource( 49 )
+mesh = SubResource( 65 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="SwitchTile"]
@@ -745,7 +869,7 @@ shape = SubResource( 3 )
 [node name="LightCrack" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57181, -0.35321, 0 )
-mesh = SubResource( 51 )
+mesh = SubResource( 67 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="LightCrack"]
@@ -756,7 +880,7 @@ shape = SubResource( 3 )
 [node name="LightCrackTop" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57181, -1.35321, 0 )
-mesh = SubResource( 53 )
+mesh = SubResource( 69 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="LightCrackTop"]
@@ -766,7 +890,7 @@ shape = SubResource( 3 )
 
 [node name="Fill" type="MeshInstance" parent="."]
 editor/display_folded = true
-mesh = SubResource( 55 )
+mesh = SubResource( 71 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fill"]
@@ -777,7 +901,7 @@ shape = SubResource( 3 )
 [node name="Bottom" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35326, 0, 0 )
-mesh = SubResource( 57 )
+mesh = SubResource( 73 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Bottom"]
@@ -785,32 +909,10 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Bottom/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="InnerTL" type="MeshInstance" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43026, 0, 0 )
-mesh = SubResource( 59 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="InnerTL"]
-
-[node name="CollisionShape" type="CollisionShape" parent="InnerTL/StaticBody"]
-shape = SubResource( 3 )
-
-[node name="Bottom Column" type="MeshInstance" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62871, 0, 0 )
-mesh = SubResource( 61 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="Bottom Column"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Bottom Column/StaticBody"]
-shape = SubResource( 3 )
-
 [node name="InnerBR" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65215, 0.00839782, -0.000781536 )
-mesh = SubResource( 63 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43026, 0, 0 )
+mesh = SubResource( 75 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="InnerBR"]
@@ -818,10 +920,32 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="InnerBR/StaticBody"]
 shape = SubResource( 3 )
 
+[node name="Bottom Column" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62871, 0, 0 )
+mesh = SubResource( 77 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Bottom Column"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottom Column/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="InnerTL" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65215, 0.00839782, -0.000781536 )
+mesh = SubResource( 79 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="InnerTL"]
+
+[node name="CollisionShape" type="CollisionShape" parent="InnerTL/StaticBody"]
+shape = SubResource( 3 )
+
 [node name="Horizonal Column" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57255, 0.00839782, -0.000781536 )
-mesh = SubResource( 65 )
+mesh = SubResource( 81 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Horizonal Column"]
@@ -829,10 +953,32 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Horizonal Column/StaticBody"]
 shape = SubResource( 3 )
 
+[node name="Horizonal Column L" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47991, 0.00839782, -0.000781536 )
+mesh = SubResource( 83 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Horizonal Column L"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Horizonal Column L/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Horizonal Column R" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2419, 0.00839782, -0.000781536 )
+mesh = SubResource( 85 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Horizonal Column R"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Horizonal Column R/StaticBody"]
+shape = SubResource( 3 )
+
 [node name="TL Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678379, 0, 0 )
-mesh = SubResource( 67 )
+mesh = SubResource( 87 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TL Corner"]
@@ -842,8 +988,8 @@ shape = SubResource( 3 )
 
 [node name="BR Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58332, 0, -3.71933e-005 )
-mesh = SubResource( 69 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58332, 0, -3.71933e-05 )
+mesh = SubResource( 89 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="BR Corner"]
@@ -853,8 +999,8 @@ shape = SubResource( 3 )
 
 [node name="Column" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85878, 0, -3.71933e-005 )
-mesh = SubResource( 71 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85878, 0, -3.71933e-05 )
+mesh = SubResource( 91 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Column"]
@@ -862,21 +1008,21 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Column/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="InnerBL" type="MeshInstance" parent="."]
+[node name="InnerTR" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93578, 0, -3.71933e-005 )
-mesh = SubResource( 73 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93578, 0, -3.71933e-05 )
+mesh = SubResource( 93 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="InnerBL"]
+[node name="StaticBody" type="StaticBody" parent="InnerTR"]
 
-[node name="CollisionShape" type="CollisionShape" parent="InnerBL/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="InnerTR/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="TR Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34731, 0, 0 )
-mesh = SubResource( 75 )
+mesh = SubResource( 95 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TR Corner"]
@@ -886,8 +1032,8 @@ shape = SubResource( 3 )
 
 [node name="BL Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.776811, 0, -3.71933e-005 )
-mesh = SubResource( 77 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.776811, 0, -3.71933e-05 )
+mesh = SubResource( 97 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="BL Corner"]
@@ -897,8 +1043,8 @@ shape = SubResource( 3 )
 
 [node name="Top Column" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05227, 0, -3.71933e-005 )
-mesh = SubResource( 79 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05227, 0, -3.71933e-05 )
+mesh = SubResource( 99 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Top Column"]
@@ -906,21 +1052,21 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Top Column/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="InnerTR" type="MeshInstance" parent="."]
+[node name="InnerBL" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12927, 0, -3.71933e-005 )
-mesh = SubResource( 81 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12927, 0, -3.71933e-05 )
+mesh = SubResource( 101 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="InnerTR"]
+[node name="StaticBody" type="StaticBody" parent="InnerBL"]
 
-[node name="CollisionShape" type="CollisionShape" parent="InnerTR/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="InnerBL/StaticBody"]
 shape = SubResource( 3 )
 
 [node name="Top" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10292, 0, 0 )
-mesh = SubResource( 83 )
+mesh = SubResource( 103 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Top"]
@@ -931,7 +1077,7 @@ shape = SubResource( 3 )
 [node name="Left" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87268, 0, 0 )
-mesh = SubResource( 85 )
+mesh = SubResource( 105 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Left"]
@@ -942,7 +1088,7 @@ shape = SubResource( 3 )
 [node name="Right" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58463, 0, 0 )
-mesh = SubResource( 87 )
+mesh = SubResource( 107 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Right"]
@@ -953,7 +1099,7 @@ shape = SubResource( 3 )
 [node name="Fake Fill" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.938203, 0 )
-mesh = SubResource( 89 )
+mesh = SubResource( 109 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake Fill"]
@@ -964,7 +1110,7 @@ shape = SubResource( 3 )
 [node name="Fake Bottom" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05108, -0.938203, 0 )
-mesh = SubResource( 91 )
+mesh = SubResource( 111 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake Bottom"]
@@ -975,7 +1121,7 @@ shape = SubResource( 3 )
 [node name="Fake TL Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678379, -0.938203, 0 )
-mesh = SubResource( 93 )
+mesh = SubResource( 113 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake TL Corner"]
@@ -986,7 +1132,7 @@ shape = SubResource( 3 )
 [node name="Fake BR Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3727, -0.938203, 0 )
-mesh = SubResource( 95 )
+mesh = SubResource( 115 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake BR Corner"]
@@ -997,7 +1143,7 @@ shape = SubResource( 3 )
 [node name="Fake TR Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34731, -0.938203, 0 )
-mesh = SubResource( 97 )
+mesh = SubResource( 117 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake TR Corner"]
@@ -1008,7 +1154,7 @@ shape = SubResource( 3 )
 [node name="Fake BL Corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703769, -0.938203, 0 )
-mesh = SubResource( 99 )
+mesh = SubResource( 119 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake BL Corner"]
@@ -1019,7 +1165,7 @@ shape = SubResource( 3 )
 [node name="Fake Top" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10292, -0.938203, 0 )
-mesh = SubResource( 101 )
+mesh = SubResource( 121 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake Top"]
@@ -1030,7 +1176,7 @@ shape = SubResource( 3 )
 [node name="Fake Left" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87268, -0.938203, 0 )
-mesh = SubResource( 103 )
+mesh = SubResource( 123 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake Left"]
@@ -1041,7 +1187,7 @@ shape = SubResource( 3 )
 [node name="Fake Right" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58463, -0.938203, 0 )
-mesh = SubResource( 105 )
+mesh = SubResource( 125 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Fake Right"]
