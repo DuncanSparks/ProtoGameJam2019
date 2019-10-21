@@ -10,7 +10,7 @@ public class LevelSelect : Control
     private string PATH3 = "res://Scenes/Level2.tscn";
     private string PATH4 = "res://Scenes/Level3.tscn";
     private string PATH5 = "res://Scenes/Level4.tscn";
-
+    private string PATH6 = "res://Scenes/Level5.tscn";
     private void _on_Level1_pressed()
     {
         GetTree().ChangeScene(PATH1);
@@ -32,8 +32,13 @@ public class LevelSelect : Control
     {
         GetTree().ChangeScene(PATH5);
     }
+    private void _on_Level6_pressed()
+    {
+        GetTree().ChangeScene(PATH6);
+    }
     private void _on_BackButton_pressed()
     {
         GetTree().ChangeScene(MAIN_PATH);
     }
+
 }
