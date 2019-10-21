@@ -1,0 +1,237 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/MainCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/DarkBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Tileset.tres" type="MeshLibrary" id=4]
+[ext_resource path="res://Sprites/LW_bg.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/DW_background.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/door.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Interact.png" type="Texture" id=8]
+[ext_resource path="res://Prefabs/Switch.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/SwitchTiles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Tether.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Page.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 0.835294, 0.92549, 0.929412, 1 )
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.835294, 0.92549, 0.929412, 1 ), Color( 0.584314, 0.0196078, 0.588235, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.584314, 0.0196078, 0.588235, 1 ), Color( 0.301961, 0.647059, 0.952941, 1 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 2, 2, 2 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
+size = Vector2( 30, 20 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 6, 4, 4 )
+uv1_offset = Vector3( 0.188801, -0.188801, 0 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 60, 40 )
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background2:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, -1, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.179273, 1, 1 )
+
+[node name="Scene" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.853, 1.122, 0.25 )
+cameraPath = NodePath("../MainCamera")
+backgroundAnimPlayerPath = NodePath("../AnimationPlayer")
+
+[node name="MainCamera" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 0.992117, 0.125314, 0, -0.125314, 0.992117, -3.07641, 0.715999, 1.95515 )
+
+[node name="DarkBall" parent="MainCamera" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0.031, -1.967 )
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Dark = SubResource( 2 )
+anims/Light = SubResource( 3 )
+
+[node name="GridMap" type="GridMap" parent="." groups=[
+"Floor",
+]]
+mesh_library = ExtResource( 4 )
+cell_size = Vector3( 0.5, 0.5, 0.5 )
+data = {
+"cells": PoolIntArray( 0, 0, 536870913, 1, 0, 1, 2, 0, 1, 3, 0, 4, 4, 0, 1, 5, 0, 1610612737, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 536870913, 12, 0, 1, 13, 0, 1, 14, 0, 1, 65528, 0, 1, 65529, 0, 1, 65530, 0, 1610612737, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 536870913, 65535, 0, 1, 65548, 0, 1, 65549, 0, 536870912, 65550, 0, 1, 131084, 0, 1, 131085, 0, 0, 131086, 0, 1, 196609, 0, 536870913, 196610, 0, 1, 196611, 0, 536870913, 196612, 0, 1, 196613, 0, 536870913, 196614, 0, 1, 196620, 0, 1, 196621, 0, 0, 196622, 0, 1, 262145, 0, 1, 262150, 0, 1, 262156, 0, 4, 262157, 0, 4, 262158, 0, 4, 327672, 0, 1, 327673, 0, 1, 327674, 0, 1, 393208, 0, 1, 393209, 0, 0, 393210, 0, 1, 458744, 0, 536870913, 458745, 0, 0, 458746, 0, 1, 524280, 0, 1, 524281, 0, 0, 524282, 0, 536870913, 524300, 0, 1, 524301, 0, 1, 524302, 0, 1, 589816, 0, 1, 589817, 0, 0, 589818, 0, 1, 589836, 0, 536870912, 589837, 0, 0, 589838, 0, 1, 655352, 0, 1, 655353, 0, 1, 655354, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 720888, 0, 536870913, 720889, 0, 536870913, 720890, 0, 1, -131072, 0, 1, -131071, 0, 536870913, -131070, 0, 1, -131069, 0, 1, -131068, 0, 536870913, -131067, 0, 536870913, -131066, 0, 1, -131065, 0, 1, -131064, 0, 1, -131063, 0, 536870913, -131062, 0, 1, -131061, 0, 1, -131060, 0, 1, -131059, 0, 1, -131058, 0, 1, -65544, 0, 536870913, -65543, 0, 1, -65542, 0, 1, -65541, 0, 1, -65540, 0, 1, -65539, 0, 1, -65538, 0, 1, -65537, 0, 536870913, -65536, 0, 536870912, -65535, 0, 0, -65534, 0, 536870912, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 1610612736, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 1, -8, 0, 1, -7, 0, 0, -6, 0, 536870912, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, 0, 21, 7, 1, 21, 7, 2, 21, 7, 3, 21, 536870919, 4, 21, 7, 5, 21, 536870919, 6, 21, 7, 7, 21, 7, 8, 21, 536870919, 9, 21, 7, 10, 21, 536870919, 11, 21, 7, 12, 21, 536870912, 13, 21, 536870912, 14, 21, 536870919, 65528, 21, 7, 65529, 21, 7, 65530, 21, 7, 65531, 21, 1073741831, 65532, 21, 7, 65533, 21, 536870919, 65534, 21, 536870919, 65535, 21, 7, 65548, 21, 536870919, 65549, 21, 536870912, 65550, 21, 536870919, 131084, 21, 536870919, 131085, 21, 536870912, 131086, 21, 7, 196620, 21, 536870919, 196621, 21, 536870912, 196622, 21, 536870919, 262145, 21, 536870919, 262146, 21, 536870919, 262147, 21, 536870919, 262148, 21, 536870919, 262149, 21, 7, 262150, 21, 536870919, 262151, 21, 536870919, 262152, 21, 7, 262153, 21, 536870919, 262154, 21, 7, 262155, 21, 536870919, 262156, 21, 7, 262157, 21, 7, 262158, 21, 536870919, 327672, 21, 7, 327673, 21, 536870919, 327674, 21, 7, 393208, 21, 536870919, 393209, 21, 536870912, 393210, 21, 536870919, 458744, 21, 7, 458745, 21, 0, 458746, 21, 7, 524280, 21, 7, 524281, 21, 0, 524282, 21, 536870919, 524288, 21, 7, 524289, 21, 536870919, 524290, 21, 7, 524291, 21, 536870919, 524292, 21, 7, 524293, 21, 536870919, 524294, 21, 536870919, 524295, 21, 7, 524296, 21, 7, 524297, 21, 7, 524298, 21, 536870919, 524299, 21, 7, 524300, 21, 7, 524301, 21, 536870919, 524302, 21, 7, 589816, 21, 7, 589817, 21, 0, 589818, 21, 536870912, 589819, 21, 7, 589820, 21, 7, 589821, 21, 7, 589822, 21, 536870919, 589823, 21, 7, 589824, 21, 0, 589825, 21, 536870912, 589826, 21, 0, 589827, 21, 536870912, 589828, 21, 0, 589829, 21, 536870912, 589830, 21, 0, 589831, 21, 536870912, 589832, 21, 536870912, 589833, 21, 536870912, 589834, 21, 0, 589835, 21, 0, 589836, 21, 536870912, 589837, 21, 0, 589838, 21, 536870919, 655352, 21, 536870919, 655353, 21, 0, 655354, 21, 0, 655355, 21, 0, 655356, 21, 536870912, 655357, 21, 536870912, 655358, 21, 0, 655359, 21, 536870912, 655360, 21, 536870919, 655361, 21, 7, 655362, 21, 7, 655363, 21, 7, 655364, 21, 536870919, 655365, 21, 536870919, 655366, 21, 536870919, 655367, 21, 536870919, 655368, 21, 536870919, 655369, 21, 536870919, 655370, 21, 536870919, 655371, 21, 7, 655372, 21, 7, 655373, 21, 7, 655374, 21, 536870919, 720888, 21, 7, 720889, 21, 536870919, 720890, 21, 536870919, 720891, 21, 7, 720892, 21, 536870919, 720893, 21, 7, 720894, 21, 7, 720895, 21, 7, -131072, 21, 7, -131071, 21, 7, -131070, 21, 7, -131069, 21, 7, -131068, 21, 7, -131067, 21, 7, -131066, 21, 7, -131065, 21, 7, -131064, 21, 7, -131063, 21, 7, -131062, 21, 7, -131061, 21, 7, -131060, 21, 7, -131059, 21, 7, -131058, 21, 7, -65544, 21, 7, -65543, 21, 7, -65542, 21, 7, -65541, 21, 7, -65540, 21, 7, -65539, 21, 7, -65538, 21, 7, -65537, 21, 7, -65536, 21, 0, -65535, 21, 0, -65534, 21, 0, -65533, 21, 0, -65532, 21, 0, -65531, 21, 0, -65530, 21, 0, -65529, 21, 0, -65528, 21, 0, -65527, 21, 0, -65526, 21, 0, -65525, 21, 0, -65524, 21, 0, -65523, 21, 0, -65522, 21, 7, -8, 21, 7, -7, 21, 0, -6, 21, 0, -5, 21, 0, -4, 21, 0, -3, 21, 0, -2, 21, 0, -1, 21, 0, 0, 23, 10, 1, 23, 10, 2, 23, 10, 3, 23, 10, 4, 23, 10, 5, 23, 10, 6, 23, 10, 7, 23, 10, 8, 23, 10, 9, 23, 10, 10, 23, 10, 11, 23, 10, 12, 23, 7, 13, 23, 7, 14, 23, 12, 65528, 23, 8, 65529, 23, 10, 65530, 23, 10, 65531, 23, 10, 65532, 23, 10, 65533, 23, 10, 65534, 23, 10, 65535, 23, 10, 65548, 23, 11, 65549, 23, 7, 65550, 23, 12, 131084, 23, 11, 131085, 23, 7, 131086, 23, 12, 196620, 23, 11, 196621, 23, 7, 196622, 23, 12, 262145, 23, 8, 262146, 23, 10, 262147, 23, 10, 262148, 23, 10, 262149, 23, 10, 262150, 23, 10, 262151, 23, 10, 262152, 23, 10, 262153, 23, 10, 262154, 23, 10, 262155, 23, 10, 262156, 23, 10, 262157, 23, 10, 262158, 23, 9, 327672, 23, 29, 327673, 23, 31, 327674, 23, 30, 393208, 23, 11, 393209, 23, 7, 393210, 23, 12, 458744, 23, 11, 458745, 23, 7, 458746, 23, 12, 524280, 23, 11, 524281, 23, 7, 524282, 23, 12, 524288, 23, 31, 524289, 23, 31, 524290, 23, 31, 524291, 23, 31, 524292, 23, 31, 524293, 23, 31, 524294, 23, 31, 524295, 23, 31, 524296, 23, 31, 524297, 23, 31, 524298, 23, 31, 524299, 23, 31, 524300, 23, 31, 524301, 23, 31, 524302, 23, 30, 589816, 23, 11, 589817, 23, 7, 589818, 23, 7, 589819, 23, 31, 589820, 23, 31, 589821, 23, 31, 589822, 23, 31, 589823, 23, 31, 589824, 23, 7, 589825, 23, 7, 589826, 23, 7, 589827, 23, 7, 589828, 23, 7, 589829, 23, 7, 589830, 23, 7, 589831, 23, 7, 589832, 23, 7, 589833, 23, 7, 589834, 23, 7, 589835, 23, 7, 589836, 23, 7, 589837, 23, 7, 589838, 23, 12, 655352, 23, 11, 655353, 23, 7, 655354, 23, 7, 655355, 23, 7, 655356, 23, 7, 655357, 23, 7, 655358, 23, 7, 655359, 23, 1073741831, 655360, 23, 10, 655361, 23, 10, 655362, 23, 10, 655363, 23, 10, 655364, 23, 10, 655365, 23, 10, 655366, 23, 10, 655367, 23, 10, 655368, 23, 10, 655369, 23, 10, 655370, 23, 10, 655371, 23, 10, 655372, 23, 10, 655373, 23, 10, 655374, 23, 9, 720888, 23, 8, 720889, 23, 10, 720890, 23, 10, 720891, 23, 10, 720892, 23, 10, 720893, 23, 10, 720894, 23, 10, 720895, 23, 10, -131072, 23, 31, -131071, 23, 31, -131070, 23, 31, -131069, 23, 31, -131068, 23, 31, -131067, 23, 31, -131066, 23, 31, -131065, 23, 31, -131064, 23, 31, -131063, 23, 31, -131062, 23, 31, -131061, 23, 31, -131060, 23, 31, -131059, 23, 31, -131058, 23, 30, -65544, 23, 29, -65543, 23, 31, -65542, 23, 31, -65541, 23, 31, -65540, 23, 31, -65539, 23, 31, -65538, 23, 31, -65537, 23, 31, -65536, 23, 7, -65535, 23, 7, -65534, 23, 7, -65533, 23, 7, -65532, 23, 7, -65531, 23, 7, -65530, 23, 7, -65529, 23, 7, -65528, 23, 7, -65527, 23, 7, -65526, 23, 7, -65525, 23, 7, -65524, 23, 7, -65523, 23, 7, -65522, 23, 12, -8, 23, 11, -7, 23, 7, -6, 23, 7, -5, 23, 7, -4, 23, 7, -3, 23, 7, -2, 23, 7, -1, 23, 7 )
+}
+__meta__ = {
+"_edit_lock_": true,
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -2, 0 )
+}
+
+[node name="Background" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.72503 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Background2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72503 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "Background"
+playback_speed = 0.1
+anims/Background = SubResource( 8 )
+
+[node name="DarkBall" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5 )
+
+[node name="Door" type="StaticBody" parent="."]
+editor/display_folded = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Door"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.264838 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93136, 1.13595, 0 )
+shape = SubResource( 9 )
+
+[node name="Door3" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.4668 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Door3"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.302963 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Door3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93136, 1.13595, 0 )
+shape = SubResource( 9 )
+
+[node name="Door2" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.34765, 2.0135, 0.544667 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Door2"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.302963 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93136, 1.13595, 0 )
+shape = SubResource( 9 )
+
+[node name="Door4" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 3.34765, 2.0135, 12.0115 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Door4"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.81323, 1.2092, 0.236506 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Door4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93136, 1.13595, 0 )
+shape = SubResource( 9 )
+
+[node name="InteractPrecache" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+texture = ExtResource( 8 )
+
+[node name="Switch" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72214, 0.548703, 0.323376 )
+partnerSwitch = NodePath("../Switch2")
+
+[node name="Switch2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72214, 0.548703, 11.6841 )
+partnerSwitch = NodePath("../Switch")
+
+[node name="SwitchTiles" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -1, 0.25 )
+mesh_library = ExtResource( 4 )
+cell_size = Vector3( 0.5, 0.5, 0.5 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 131069, 0, 536936497, 131070, 0, 65585, 196605, 0, 536936497, 196606, 0, 65585, 131069, 22, 536870961, 131070, 22, 536870961, 196605, 22, 536870961, 196606, 22, 536870961 )
+}
+positionAlpha = Vector3( 0.25, -1, 0.25 )
+positionBeta = Vector3( 0.25, 0.25, 0.25 )
+
+[node name="SwitchTiles2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18, 0.25, 0.25 )
+mesh_library = ExtResource( 4 )
+cell_size = Vector3( 0.5, 0.5, 0.5 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 131069, 0, 65585, 131070, 0, 536936497, 196605, 0, 65585, 196606, 0, 65585, 131069, 22, 49, 131070, 22, 536870961, 196605, 22, 49, 196606, 22, 49 )
+}
+positionAlpha = Vector3( 5.18, 0.25, 0.25 )
+positionBeta = Vector3( 5.18, -1, 0.25 )
+
+[node name="Tether" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76009, 0.730945, 0.348119 )
+
+[node name="Page" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2919, 3.24826, 0.249254 )
+nextLevel = "res://Scenes/Level2.tscn"
+pageText = "Entry 3
+
+The ancients locked away this book for a reason – indeed, it holds many secrets yet to be uncovered. I have studied for centuries, searching to break the supposed boundaries of the arcane, yet the creation of these rifts exhilarates me like nothing has before. Through our trials we have already discovered that some matter exists in one realm, yet is seemingly missing from the other. Our next trial will attempt to transport matter between dimensions.
+"
+[connection signal="pulled_off" from="Switch" to="SwitchTiles" method="Move" binds= [ false ]]
+[connection signal="pulled_on" from="Switch" to="SwitchTiles" method="Move" binds= [ true ]]
+[connection signal="pulled_off" from="Switch2" to="SwitchTiles" method="Move" binds= [ false ]]
+[connection signal="pulled_on" from="Switch2" to="SwitchTiles" method="Move" binds= [ true ]]
