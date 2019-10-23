@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Arcane Secret"
 run/main_scene="res://Scenes/TitleScreen.tscn"
+boot_splash/image="res://splash.png"
 config/icon="res://IconNew.png"
 
 [audio]
